@@ -55,6 +55,8 @@ No external APIs outside of the tech stack will be utilized
 
 ### Sitemap
 
+```
+
 Index ___ Home page that prompts existing users to log-in. Also provides an option to sign-up, or continue as guest
       |
       |__ Plan Builder Page - main page where new plans are made and existing plans are viewed or modified. Same for guests and registered users
@@ -62,6 +64,9 @@ Index ___ Home page that prompts existing users to log-in. Also provides an opti
       |__Sign-up Page - A page to register a new user
       |
       |__ User Profile - A page where registered users can access their settings, preferences, saved plans, and delete their account
+
+
+```
 
 ### Mockups
 
