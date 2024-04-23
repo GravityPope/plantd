@@ -140,7 +140,7 @@ response:
     name: 'Cherokee Purple',
     description: 'The Cherokee Purple Heirloom Tomato is a purple coloured variety, cultivated by a Native American Cherokee tribe. The plants are highly productive, producing loads of 12 ounce beefsteak tomatoes with deep red interiors. Its complex sweet flavours make it one of the best tasting heirlooms.',
     sun: 'full',
-    frost: 'not-tolerant',
+    frost_tolerance: 'none',
     maturity_in_days: 80,
     seed_spacing_in: 12,
     footprint: 1,
@@ -194,7 +194,7 @@ response:
 ```
 
 
-- GET `/api/plants?type=nightshade&frost=not-tolerant` get cultivars based on search params. This will return an array of cultivars that match the search filters.
+<!-- - GET `/api/plants?type=nightshade&frost=not-tolerant` get cultivars based on search params. This will return an array of cultivars that match the search filters.
 response:
 ```
 [ 
@@ -213,7 +213,7 @@ response:
     perenial_zone: 9
 }, ...
 ]
-```
+``` -->
 
 - GET `/api/planters` get all premade planters. This will return an array of planter objects.
 response:
@@ -241,7 +241,7 @@ response:
 ]
 ```
 
-- GET `api/planters?type=planter` get planters based on search params. This will return an array of planter objects that match the search filters.
+<!-- - GET `api/planters?type=planter` get planters based on search params. This will return an array of planter objects that match the search filters.
 response:
 ```
 [
@@ -264,7 +264,7 @@ response:
         round: false
     }, ...
 ]
-```
+``` -->
 
 #### Users and log in
 
@@ -399,21 +399,22 @@ response:
 <!-- 
 Does your project include any login or user profile functionality? If so, describe how authentication/authorization will be implemented. -->
 
-User accounts are optional to use the planner, but are required to save plans. Authentication/authorization will be implemented via JWTs and hashed passwords.
+User accounts are optional to use the planner, but are required to save plans. Authentication/authorization will be implemented via JWTs.
 
 ## Roadmap
 
 <!-- Scope your project as a sprint. Break down the tasks that will need to be completed and map out timeframes for implementation. Think about what you can reasonably complete before the due date. The more detail you provide, the easier it will be to build. -->
 
 General functionality goals for this sprint:
-- all `plants` endpoints functional, except `/friends` and `/foes` ( maybe also not search queries? )
+- all `plants` endpoints functional, except `/friends` and `/foes` 
 - limited dataset for types, plants, and planters tables. One default cultivar for each plant
-- 'guest' Plan Builder Page functionality, able to search for plants using filters (front end implementation?), drag planters and plants out of their drawers, drop planters on the planning canvas, drop plants in planters
+- 'guest' Plan Builder Page functionality, able to search for plants using filters only (front end implementation, no cultivar name search), drag planters and plants out of their drawers, drop planters on the planning canvas, drop plants in planters
 
 
 ## Nice-to-haves
 
 <!-- Your project will be marked based on what you committed to in the above document. Under nice-to-haves, you can list any additional features you may complete if you have extra time, or after finishing. -->
 - `users and login` endpoints
-- implement auth with hashed passwords
+- implement auth 
+- implement string search
 - `/friends` and `/foes` endpoints
