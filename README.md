@@ -271,6 +271,11 @@ response:
 ]
 ``` -->
 
+
+
+
+
+
 #### Users and log in
 
 - POST `api/login` accepts a user name and password in the request body and responds with a session auth token.
@@ -418,8 +423,11 @@ General functionality goals for this sprint:
 - planning phase, plan components and backend structure - 2 days
 - all `plants` endpoints functional, except `/friends` and `/foes` -2 days
 - limited dataset for types, plants, and planters tables. One default cultivar for each plant
-- 'guest' Plan Builder Page functionality, able to search for plants using filters only (front end implementation, no cultivar name search), drag planters and plants out of their drawers, drop planters on the planning canvas, drop plants in planters - until ship
-
+- 'guest' Plan Builder Page functionality - until ship
+    - able to search for plants using filters only (front end implementation, no cultivar name search)
+    - drag planters and plants out of their drawers 
+    - drop planters on the planning canvas
+    - drop plants in planters    
 
 ## Nice-to-haves
 
