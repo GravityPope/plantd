@@ -403,8 +403,17 @@ User accounts are optional to use the planner, but are required to save plans. A
 
 ## Roadmap
 
-Scope your project as a sprint. Break down the tasks that will need to be completed and map out timeframes for implementation. Think about what you can reasonably complete before the due date. The more detail you provide, the easier it will be to build.
+<!-- Scope your project as a sprint. Break down the tasks that will need to be completed and map out timeframes for implementation. Think about what you can reasonably complete before the due date. The more detail you provide, the easier it will be to build. -->
+
+General functionality goals for this sprint:
+- all `plants` endpoints functional, except `/friends` and `/foes` ( maybe also not search queries? )
+- limited dataset for types, plants, and planters tables. One default cultivar for each plant
+- 'guest' Plan Builder Page functionality, able to search for plants using filters (front end implementation?), drag planters and plants out of their drawers, drop planters on the planning canvas, drop plants in planters
+
 
 ## Nice-to-haves
 
-Your project will be marked based on what you committed to in the above document. Under nice-to-haves, you can list any additional features you may complete if you have extra time, or after finishing.
+<!-- Your project will be marked based on what you committed to in the above document. Under nice-to-haves, you can list any additional features you may complete if you have extra time, or after finishing. -->
+- `users and login` endpoints
+- implement auth with hashed passwords
+- `/friends` and `/foes` endpoints
