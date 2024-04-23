@@ -81,6 +81,7 @@ Index ___ Home page that prompts existing users to log-in. Also provides an opti
 
 #### Plants
 - GET `/api/plants` get all plants and their types. This will include basic information about the plant, but not specific cultivar or growth details
+
 response:
 ```
 [{
@@ -102,6 +103,7 @@ response:
 ```
 
 - GET `/api/plants/:id` get a specific plant by id. This will return an array of cultivars for that plant in addition to the plant's information.
+
 response:
 ```
 [{
@@ -150,6 +152,7 @@ response:
 }
 ```
 - GET `api/plants/:id/friends` get a list of positive-influence companions for a specific plant. responds with a list of plants
+
 response:
 ```
 [{
@@ -172,6 +175,7 @@ response:
 ```
 
 - GET `api/plants/:id/foes` get a list of negative-influence companions for a specific plant. responds with a list of plants
+
 response:
 ```
 [{
@@ -216,6 +220,7 @@ response:
 ``` -->
 
 - GET `/api/planters` get all premade planters. This will return an array of planter objects.
+
 response:
 ```
 
@@ -269,6 +274,7 @@ response:
 #### Users and log in
 
 - POST `api/login` accepts a user name and password in the request body and responds with a session auth token.
+
 request body:
 ```
 {
@@ -285,6 +291,7 @@ response:
 ```
 
 - POST `api/signup` creates a new user account and responds with a session auth token on successful creation.
+
 request body:
 ```
 {
@@ -302,6 +309,7 @@ response:
 ```
 
 - POST `api/users/:id/plans` saves a new plan to a user's account.
+
 request body:
 ```
 {
@@ -341,6 +349,7 @@ request body:
 
 
 - GET `api/users/:id` gets user information and saved plans.
+
 response:
 ```
 {
