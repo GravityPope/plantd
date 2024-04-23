@@ -415,15 +415,17 @@ User accounts are optional to use the planner, but are required to save plans. A
 <!-- Scope your project as a sprint. Break down the tasks that will need to be completed and map out timeframes for implementation. Think about what you can reasonably complete before the due date. The more detail you provide, the easier it will be to build. -->
 
 General functionality goals for this sprint:
-- all `plants` endpoints functional, except `/friends` and `/foes` 
+- planning phase, plan components and backend structure - 2 days
+- all `plants` endpoints functional, except `/friends` and `/foes` -2 days
 - limited dataset for types, plants, and planters tables. One default cultivar for each plant
-- 'guest' Plan Builder Page functionality, able to search for plants using filters only (front end implementation, no cultivar name search), drag planters and plants out of their drawers, drop planters on the planning canvas, drop plants in planters
+- 'guest' Plan Builder Page functionality, able to search for plants using filters only (front end implementation, no cultivar name search), drag planters and plants out of their drawers, drop planters on the planning canvas, drop plants in planters - until ship
 
 
 ## Nice-to-haves
 
 <!-- Your project will be marked based on what you committed to in the above document. Under nice-to-haves, you can list any additional features you may complete if you have extra time, or after finishing. -->
 - `users and login` endpoints
+- saving functionality
 - implement auth 
 - implement string search
 - `/friends` and `/foes` endpoints
