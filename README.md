@@ -276,7 +276,7 @@ response:
 
 #### Users and log in
 
-- POST `api/login` accepts a user name and password in the request body and responds with a session auth token.
+- POST `/login` accepts a user name and password in the request body and responds with a session auth token.
 
 request body:
 ```
@@ -293,7 +293,7 @@ response:
 }
 ```
 
-- POST `api/signup` creates a new user account and responds with a session auth token on successful creation.
+- POST `/signup` creates a new user account and responds with a session auth token on successful creation.
 
 request body:
 ```
@@ -311,7 +311,7 @@ response:
 }
 ```
 
-- POST `api/users/:id/plans` saves a new plan to a user's account.
+- POST `/users/:id/plans` saves a new plan to a user's account.
 
 request body:
 ```
@@ -351,7 +351,7 @@ request body:
 ```
 
 
-- GET `api/users/:id` gets user information and saved plans.
+- GET `/users/:id` gets user information and saved plans.
 
 response:
 ```
