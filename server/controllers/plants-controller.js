@@ -74,7 +74,8 @@ const getCultivar = async (req, res) => {
         "support",
         "usda_zone"
       )
-      .where({ id });
+      .where({ id })
+      .first();
     res.status(200).json(response);
   } catch (error) {
     console.log(error);
@@ -84,8 +85,24 @@ const getCultivar = async (req, res) => {
   }
 };
 
+const getPlanters = async (_req, res) => {
+    try {
+        const response = await knex("planters");
+
+        res.status(200).json(response);
+        
+    } catch (error) {
+        console.log(error);
+    res.status(500).json({
+      message: "Unable to retrive Planters",
+    });
+        
+    }
+}
+
 module.exports = {
   getPlants,
   getPlantById,
-  getCultivar
+  getCultivar,
+  getPlanters
 };

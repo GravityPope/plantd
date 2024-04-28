@@ -11,8 +11,8 @@ router.route("/plants/:id")
 router.route("/cultivars/:id")
     .get(plantsController.getCultivar);
 
-// router.route("/planters")
-//     .get(plantsController.getPlanters)
+router.route("/planters")
+    .get(plantsController.getPlanters)
 
 
 

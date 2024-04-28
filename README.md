@@ -81,22 +81,22 @@ Index ___ Home page that prompts existing users to log-in. Also provides an opti
 response:
 
 ```
-[{
-    type_id: <string>,
-    plant_id: <string>,
-    type: 'Nightshade',
-    plant_name: 'Tomato - indeterminate',
-    plant_description: 'A tasty garden classic, with many different varieties sutable for different preparations'
-
-},
-{
-    type_id: <string>,
-    plant_id: <string>,
-    type: 'Pepper',
-    plant_name: 'Bell Pepper',
-    plant_description: 'Sweet and crisp pepper, with large fruits in a variety of colors which have little to no spicy flavor'
-
-}, ...]
+[
+  {
+    "type_id": "479cbb7f-00d8-4c24-a45c-7d10865a7fec",
+    "plant_id": "43d50474-d1f6-4ff9-b2d1-658a2efccba1",
+    "type": "Small Fruit",
+    "plant_name": "Strawberries",
+    "plant_description": "Juicy sweetness and vibrant color make Strawberries perfect for enjoying fresh and adding to desserts. Also great for canning and freezing to enjoy all year."
+  },
+  {
+    "type_id": "5bdba3d3-451e-4ee8-ba78-efcf9746aff8",
+    "plant_id": "92fe9d1d-1a43-4864-b265-9069079bf2c0",
+    "type": "Cereal Grain",
+    "plant_name": "Corn",
+    "plant_description": "A tall cereal plant bearing large, edible grains on cob-like structures, renowned for its versatility in culinary applications and its role as a staple crop in many cultures."
+  }, ...
+]
 ```
 
 - GET `/api/plants/:id` get a specific plant by id. This will return an array of cultivars for that plant in addition to the plant's information.
@@ -105,26 +105,20 @@ response:
 
 ```
 {
-    type_id: <string>,
-    plant_id: <string>,
-    type: 'Nightshade',
-    plant_name: 'Tomato - indeterminate',
-    plant_description: 'A tasty garden classic, with many different varieties sutable for different preparations',
-    cultivars: [
-        {
-            id: <string>,
-            name: 'Cherokee Purple',
-            description: 'The Cherokee Purple Heirloom Tomato is a purple coloured variety, cultivated by a Native American Cherokee tribe. The plants are highly productive, producing loads of 12 ounce beefsteak tomatoes with deep red interiors. Its complex sweet flavours make it one of the best tasting heirlooms.',
-            maturity_in_days: 80,
-        },
-        {
-            id: <string>,
-            name: 'Brandywine, Red',
-            description: 'This is an old Amish tomato named after Brandywine Creek in Chester County, PA. Red Brandywine Heirloom Tomatoes have vigorous vines and produce tomatoes that consistently win contests for the best tomato flavour. The fruit are large with an interesting shape and ripen later in the season.',
-            maturity_in_days: 85,
-
-        }, ...
-    ]}
+  "type_id": "f6052f3a-deb9-4861-a962-e3aac2865091",
+  "plant_id": "0738a646-6aa8-4d5e-b5bd-3c2f6c9a4d56",
+  "type": "Nightshade",
+  "plant_name": "Tomatoes",
+  "plant_description": "A heat loving and thirsty garden classic, with many different varieties sutable for different preparations",
+  "cultivars": [
+    {
+      "id": "c43a324d-fe94-47cd-a6b7-428feca264dd",
+      "name": "Cherokee Purple",
+      "description": "The Cherokee Purple Heirloom Tomato is a purple coloured variety, cultivated by a Native American Cherokee tribe. The plants are highly productive, producing loads of 12 ounce beefsteak tomatoes with deep red interiors. Its complex sweet flavours make it one of the best tasting heirlooms.",
+      "maturity_in_days": 80
+    }, ...
+  ]
+}
 ```
 
 - GET `/api/cultivars/:id` get a cultivar by id. This will return all detailed information about a cultivar, including its growth requirements
@@ -133,16 +127,16 @@ response:
 
 ```
 {
-    id: <string>,
-    plant_id: <string>,
-    name: 'Cherokee Purple',
-     description: 'The Cherokee Purple Heirloom Tomato is a purple coloured variety, cultivated by a Native American Cherokee tribe. The plants are highly productive, producing loads of 12 ounce beefsteak tomatoes with deep red interiors. Its complex sweet flavours make it one of the best tasting heirlooms.',
-      sun: 'full',
-      frost_tolerance: 'none',
-      maturity_in_days: 80,
-      footprint: 12,
-      support: true,
-      usda_zone: '[5, 6, 7, 8]'
+  "id": "0fd46f1a-175a-4b21-9ecb-17c3220c70a4",
+  "plant_id": "ab152a53-8a17-45e2-a864-e9b985c66683",
+  "name": "Sugar Daddy",
+  "description": "A very productive, bushy plant that benefits from some support, Sugar Daddy snap pea seeds produce pods that become uniquely stringless, 8cm (3\") snap peas. They grow in pairs near the top of the plant for easy picking. This variety has good disease resistance, but not to the enation virus that sometimes spreads in mid-summer.",
+  "sun": "full",
+  "frost_tolerance": "mild",
+  "maturity_in_days": 68,
+  "footprint": 2,
+  "support": 1,
+  "usda_zone": "[3, 4, 5, 6, 7, 8, 9, 10, 11]"
 }
 ```
 
@@ -221,23 +215,25 @@ response:
 
 [
     {
-        id: <string>,
-        type: 'raised bed',
-        height: 18,
-        width: 0,
-        length 0,
-        radius: 9,
-        round: true
-    },
-    {
-        id: <string>,
-        type: 'in-ground',
-        height: 0,
-        width: 18,
-        length 36,
-        radius: 0,
-        round: false
-    }, ...
+    "id": "33e2ecc6-77a7-4c17-813b-7544aa55c480",
+    "name": "Window Box",
+    "type": "Planter",
+    "height": 8,
+    "width": 6,
+    "length": 24,
+    "radius": 0,
+    "round": 0
+  },
+  {
+    "id": "7008d119-7f02-4ddc-8b98-13752a9986c5",
+    "name": "Round Raised Bed",
+    "type": "Raised Bed",
+    "height": 24,
+    "width": 0,
+    "length": 0,
+    "radius": 9,
+    "round": 1
+  }, ...
 ]
 ```
 
