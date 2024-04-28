@@ -136,7 +136,7 @@ response:
   "maturity_in_days": 68,
   "footprint": 2,
   "support": 1,
-  "usda_zone": "[3, 4, 5, 6, 7, 8, 9, 10, 11]"
+  "usda_zone": { "value": [3, 4, 5, 6, 7, 8, 9, 10, 11]}
 }
 ```
 
