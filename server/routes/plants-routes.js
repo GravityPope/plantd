@@ -5,11 +5,11 @@ const plantsController = require("../controllers/plants-controller");
 router.route("/plants")
     .get(plantsController.getPlants);
 
-// router.route("/plants/:id")
-//     .get(plantsController.getPlantById);
+router.route("/plants/:id")
+    .get(plantsController.getPlantById);
 
-// router.route("/cultivars/:id")
-//     .get(plantsController.getCultivar);
+router.route("/cultivars/:id")
+    .get(plantsController.getCultivar);
 
 // router.route("/planters")
 //     .get(plantsController.getPlanters)

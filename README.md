@@ -104,7 +104,7 @@ response:
 response:
 
 ```
-[{
+{
     type_id: <string>,
     plant_id: <string>,
     type: 'Nightshade',
@@ -125,7 +125,6 @@ response:
 
         }, ...
     ]}
-]
 ```
 
 - GET `/api/cultivars/:id` get a cultivar by id. This will return all detailed information about a cultivar, including its growth requirements
