@@ -2,13 +2,13 @@
 
 ## Overview
 
-A modern garden planning tool that makes implementing organic growing, crop rotation, and companion planting principals a breeze. Plan out any sized garden, from a single pot on a balcony, to an urban farm! 
+A modern garden planning tool that makes implementing organic growing, crop rotation, and companion planting principals a breeze. Plan out any sized garden, from a single pot on a balcony, to an urban farm!
 
 ### Problem
 
 <!-- Why is your app needed? Background information around any pain points or other reasons. -->
 
-Planning what to grow in your garden every year is a time consuming process when you want to maximize production and minimize the use of chemical fertilizers and pesticides. Current fully featured digital tools are clunky to use, riddled with outdated interfaces and lack functional mobile options. 
+Planning what to grow in your garden every year is a time consuming process when you want to maximize production and minimize the use of chemical fertilizers and pesticides. Current fully featured digital tools are clunky to use, riddled with outdated interfaces and lack functional mobile options.
 
 ### User Profile
 
@@ -17,7 +17,6 @@ Planning what to grow in your garden every year is a time consuming process when
 - An inexperienced, new, or curious Gardener, will find this app an approachable place to start and will appreciate the guidance and suggestions it provides.
 - An experienced Gardener will appreciate the clean and modern interface, ability to access previous years' plans, and helpful crop rotation suggestions that maximize soil health and productivity.
 - All Gardeners will benefit from being able to access and create their plans from any device: Smartphone, Tablet, or Computer.
-
 
 ### Features
 
@@ -29,9 +28,6 @@ Planning what to grow in your garden every year is a time consuming process when
 - As a Gardener, I want to understand what plants grow best in my region so I can choose the right cultivars for my conditions.
 - As a Gardener, I want to be able to save the plans I have made so I can refer back to them later.
 - As a Gardener, I want to attract beneficial insects to stay in my garden so I can spend less time hand-pollenating and managing pests.
-
-
-
 
 ## Implementation
 
@@ -47,7 +43,6 @@ Planning what to grow in your garden every year is a time consuming process when
 - Knex
 - Axios
 - dndKit
-
 
 ### APIs
 
@@ -80,9 +75,11 @@ Index ___ Home page that prompts existing users to log-in. Also provides an opti
 ### Endpoints
 
 #### Plants
+
 - GET `/api/plants` get all plants and their types. This will include basic information about the plant, but not specific cultivar or growth details
 
 response:
+
 ```
 [{
     type_id: <string>,
@@ -105,6 +102,7 @@ response:
 - GET `/api/plants/:id` get a specific plant by id. This will return an array of cultivars for that plant in addition to the plant's information.
 
 response:
+
 ```
 [{
     type_id: <string>,
@@ -113,7 +111,7 @@ response:
     plant_name: 'Tomato - indeterminate',
     plant_description: 'A tasty garden classic, with many different varieties sutable for different preparations',
     cultivars: [
-        { 
+        {
             id: <string>,
             name: 'Cherokee Purple',
             description: 'The Cherokee Purple Heirloom Tomato is a purple coloured variety, cultivated by a Native American Cherokee tribe. The plants are highly productive, producing loads of 12 ounce beefsteak tomatoes with deep red interiors. Its complex sweet flavours make it one of the best tasting heirlooms.',
@@ -133,22 +131,26 @@ response:
 - GET `/api/cultivars/:id` get a cultivar by id. This will return all detailed information about a cultivar, including its growth requirements
 
 response:
+
 ```
 {
     id: <string>,
     plant_id: <string>,
     name: 'Cherokee Purple',
-    description: 'The Cherokee Purple Heirloom Tomato is a purple coloured variety, cultivated by a Native American Cherokee tribe. The plants are highly productive, producing loads of 12 ounce beefsteak tomatoes with deep red interiors. Its complex sweet flavours make it one of the best tasting heirlooms.',
-    sun: 'full',
-    frost_tolerance: 'none',
-    maturity_in_days: 80,
-    footprint: 12,
-    support: true,
+     description: 'The Cherokee Purple Heirloom Tomato is a purple coloured variety, cultivated by a Native American Cherokee tribe. The plants are highly productive, producing loads of 12 ounce beefsteak tomatoes with deep red interiors. Its complex sweet flavours make it one of the best tasting heirlooms.',
+      sun: 'full',
+      frost_tolerance: 'none',
+      maturity_in_days: 80,
+      footprint: 12,
+      support: true,
+      usda_zone: '[5, 6, 7, 8]'
 }
 ```
+
 - GET `api/plants/:id/friends` get a list of positive-influence companions for a specific plant. responds with a list of plants
 
 response:
+
 ```
 [{
     type_id: <string>,
@@ -172,6 +174,7 @@ response:
 - GET `api/plants/:id/foes` get a list of negative-influence companions for a specific plant. responds with a list of plants
 
 response:
+
 ```
 [{
     type_id: <string>,
@@ -192,11 +195,10 @@ response:
 ]
 ```
 
-
 <!-- - GET `/api/plants?type=nightshade&frost=not-tolerant` get cultivars based on search params. This will return an array of cultivars that match the search filters.
 response:
 ```
-[ 
+[
     {
     id: <string>,
     plant_id: <string>,
@@ -207,7 +209,7 @@ response:
     maturity_in_days: 80,
     footprint: 12,
     support: true,
-   
+
 }, ...
 ]
 ``` -->
@@ -215,6 +217,7 @@ response:
 - GET `/api/planters` get all premade planters. This will return an array of planter objects.
 
 response:
+
 ```
 
 [
@@ -266,12 +269,12 @@ response:
 
 ---
 
-
 #### Users and log in
 
 - POST `/login` accepts a user name and password in the request body and responds with a session auth token.
 
 request body:
+
 ```
 {
     username: user_name,
@@ -280,6 +283,7 @@ request body:
 ```
 
 response:
+
 ```
 {
     auth_token: <token>
@@ -289,6 +293,7 @@ response:
 - POST `/signup` creates a new user account and responds with a session auth token on successful creation.
 
 request body:
+
 ```
 {
     username: user_name,
@@ -297,7 +302,9 @@ request body:
     email: email@email.com (optional)
 }
 ```
+
 response:
+
 ```
 {
     auth_token: <token>
@@ -307,6 +314,7 @@ response:
 - POST `/users/:id/plans` saves a new plan to a user's account.
 
 request body:
+
 ```
 {
     name: 'Front Garden',
@@ -325,7 +333,7 @@ request body:
             ]
 
         },
-        { 
+        {
             planter_id: <string>,
                 plants: [
                 {
@@ -343,10 +351,10 @@ request body:
 }
 ```
 
-
 - GET `/users/:id` gets user information and saved plans.
 
 response:
+
 ```
 {
     username: user_name,
@@ -372,7 +380,7 @@ response:
 
                 }, ....
             ]
-        
+
         },
         {
             id: <string>,
@@ -399,9 +407,9 @@ response:
 }
 ```
 
-
 ### Auth
-<!-- 
+
+<!--
 Does your project include any login or user profile functionality? If so, describe how authentication/authorization will be implemented. -->
 
 User accounts are optional to use the planner, but are required to save plans. Authentication/authorization will be implemented via JWTs.
@@ -411,20 +419,22 @@ User accounts are optional to use the planner, but are required to save plans. A
 <!-- Scope your project as a sprint. Break down the tasks that will need to be completed and map out timeframes for implementation. Think about what you can reasonably complete before the due date. The more detail you provide, the easier it will be to build. -->
 
 General functionality goals for this sprint:
+
 - planning phase, plan components and backend structure - 2 days
 - all `plants` endpoints functional, except `/friends` and `/foes` -2 days
 - limited dataset for types, plants, and planters tables. One default cultivar for each plant
 - 'guest' Plan Builder Page functionality - until ship
-    - able to search for plants using filters only (front end implementation, no cultivar name search)
-    - drag planters and plants out of their drawers 
-    - drop planters on the planning canvas
-    - drop plants in planters    
+  - able to search for plants using filters only (front end implementation, no cultivar name search)
+  - drag planters and plants out of their drawers
+  - drop planters on the planning canvas
+  - drop plants in planters
 
 ## Nice-to-haves
 
 <!-- Your project will be marked based on what you committed to in the above document. Under nice-to-haves, you can list any additional features you may complete if you have extra time, or after finishing. -->
+
 - `users and login` endpoints
 - saving functionality
-- implement auth 
+- implement auth
 - implement string search
 - `/friends` and `/foes` endpoints

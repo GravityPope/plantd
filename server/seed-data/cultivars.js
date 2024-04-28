@@ -8,7 +8,8 @@ module.exports = [
       frost_tolerance: 'none',
       maturity_in_days: 80,
       footprint: 12,
-      support: true
+      support: true,
+      usda_zone: '[5, 6, 7, 8]'
     },
     {
       id: '0fd46f1a-175a-4b21-9ecb-17c3220c70a4',
@@ -19,7 +20,8 @@ module.exports = [
       frost_tolerance: 'mild',
       maturity_in_days: 68,
       footprint: 2,
-      support: true
+      support: true,
+      usda_zone: '[3, 4, 5, 6, 7, 8, 9, 10, 11]'
     },
     {
       id: '3ab5037a-d1cb-44bd-95e7-bd425c98a981',
@@ -30,7 +32,8 @@ module.exports = [
       frost_tolerance: 'mild',
       maturity_in_days: 75,
       footprint: 1,
-      support: false
+      support: false,
+      usda_zone: '[2, 3, 4, 5, 6, 7, 8, 9, 10]'
     },
     {
       id: '57864375-b4ae-49af-936d-02be4070fde3',
@@ -41,7 +44,8 @@ module.exports = [
       frost_tolerance: 'none',
       maturity_in_days: 75,
       footprint: 12,
-      support: false
+      support: false,
+      usda_zone: '[9, 10, 11]'
     },
     {
       id: 'edb0ab8c-b923-49bf-9aff-bc66b55427ba',
@@ -52,7 +56,8 @@ module.exports = [
       frost_tolerance: 'none',
       maturity_in_days: 70,
       footprint: 12,
-      support: false
+      support: false,
+      usda_zone: '[9, 10, 11]'
     },
     {
       id: '51bdedee-6e4e-4eac-a131-0dc0e112b91e',
@@ -63,7 +68,8 @@ module.exports = [
       frost_tolerance: 'mild',
       maturity_in_days: 60,
       footprint: 12,
-      support: false
+      support: false,
+      usda_zone: '[2, 3, 4, 5, 6, 7, 8, 9, 10, 11]'
     },
     {
       id: 'f08c0353-fceb-47cd-940a-0dec421f954d',
@@ -74,7 +80,9 @@ module.exports = [
       frost_tolerance: 'mild',
       maturity_in_days: 70,
       footprint: 3,
-      support: false
+      support: false,
+      usda_zone: '[2, 3, 4, 5, 6, 7, 8, 9, 10, 11]'
+
     },
     {
       id: 'b86d089c-8085-4b44-8294-ee1395702832',
@@ -85,7 +93,8 @@ module.exports = [
       frost_tolerance: 'none',
       maturity_in_days: 58,
       footprint: 12,
-      support: true
+      support: true,
+      usda_zone: '[4, 5, 6, 7, 8, 9, 10, 11, 12]'
     },
     {
       id: '843c5b83-be0a-45a6-bbee-47ae85bb3ff3',
@@ -96,7 +105,8 @@ module.exports = [
       frost_tolerance: 'none',
       maturity_in_days: 150,
       footprint: 3,
-      support: false
+      support: false,
+      usda_zone: '[4, 5, 6, 7, 8, 9]'
     },
     {
       id: '22122953-c820-400d-98de-087cd57f2436',
@@ -107,7 +117,9 @@ module.exports = [
       frost_tolerance: 'none',
       maturity_in_days: 70,
       footprint: 3,
-      support: false
+      support: false,
+      usda_zone: '[2, 3, 4, 5, 6, 7, 8, 9, 10, 11]'
+
     },
     {
       id: '6cf17966-2442-4058-9ed8-bad38145c745',
@@ -118,7 +130,8 @@ module.exports = [
       frost_tolerance: 'none',
       maturity_in_days: 110,
       footprint: 12,
-      support: false
+      support: false,
+      usda_zone: '[3, 4, 5, 6, 7, 8, 9]'
     },
     {
       id: '1dc32cb2-7be8-4152-ae31-16c77ea88add',
@@ -129,7 +142,8 @@ module.exports = [
       frost_tolerance: 'mild',
       maturity_in_days: 60,
       footprint: 3,
-      support: false
+      support: false,
+      usda_zone: '[3, 4, 5, 6, 7, 8, 9, 10]'
     },
     {
       id: '0668a8f9-f6ce-40b1-afbd-f814ba545710',
@@ -140,7 +154,8 @@ module.exports = [
       frost_tolerance: 'mild',
       maturity_in_days: 70,
       footprint: 3,
-      support: true
+      support: true,
+      usda_zone: '[2, 3, 4, 5, 6, 7, 8, 9, 10, 11]'
     },
     {
       id: 'f455f4d4-fa57-4c70-9ff6-f9b2ac6a3225',
@@ -151,7 +166,8 @@ module.exports = [
       frost_tolerance: 'mild',
       maturity_in_days: 100,
       footprint: 3,
-      support: false
+      support: false,
+      usda_zone: '[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]'
     },
     {
       id: 'e20bb2e8-bebd-4c2a-8ec4-df00fb0b1d7e',
@@ -162,7 +178,8 @@ module.exports = [
       frost_tolerance: 'hard',
       maturity_in_days: 100,
       footprint: 2,
-      support: false
+      support: false,
+      usda_zone: '[3, 4, 5, 6, 7, 8, 9, 10]'
     }
   ]
 

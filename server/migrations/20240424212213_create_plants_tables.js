@@ -10,37 +10,31 @@ exports.up = function (knex) {
     })
     .createTable("plants", (table) => {
       table.string("id").primary();
-      table.string("name").notNullable();
-      table.string("description").notNullable();
-      table.string("default_cultivar");
       table
         .string("type_id")
         .references("types.id")
         .onUpdate("CASCADE")
         .onDelete("CASCADE");
+      table.string("name").notNullable();
+      table.string("description").notNullable();
+      table.string("default_cultivar");
+      
     })
     .createTable("cultivars", (table) => {
       table.string("id").primary();
+      table
+        .string("plant_id")
+        .references("plants.id")
+        .onUpdate("CASCADE")
+        .onDelete("CASCADE");
       table.string("name").notNullable();
       table.string("description");
       table.string("sun").notNullable();
       table.string("frost_tolerance").notNullable();
       table.integer("footprint").notNullable();
       table.boolean("support");
-      table
-        .string("plant_id")
-        .references("plants.id")
-        .onUpdate("CASCADE")
-        .onDelete("CASCADE");
-    })
-    .createTable("zones", (table) => {
-      table.string("id").primary();
       table.string("usda_zone").notNullable();
-      table
-        .string("cultivar_id")
-        .references("cultivars.id")
-        .onUpdate("CASCADE")
-        .onDelete("CASCADE");
+      
     })
     .createTable("planters", (table) => {
       table.string("id").primary();
