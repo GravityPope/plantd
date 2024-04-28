@@ -34,7 +34,7 @@ exports.up = function (knex) {
       table.integer("maturity_in_days").notNullable();
       table.integer("footprint").notNullable();
       table.boolean("support");
-      table.string("usda_zone").notNullable();
+      table.json("usda_zone").notNullable();
       
     })
     .createTable("planters", (table) => {
