@@ -28,9 +28,10 @@ exports.up = function (knex) {
         .onUpdate("CASCADE")
         .onDelete("CASCADE");
       table.string("name").notNullable();
-      table.string("description");
+      table.string("description", 1000);
       table.string("sun").notNullable();
       table.string("frost_tolerance").notNullable();
+      table.integer("maturity_in_days").notNullable();
       table.integer("footprint").notNullable();
       table.boolean("support");
       table.string("usda_zone").notNullable();
@@ -53,5 +54,5 @@ exports.up = function (knex) {
  * @returns { Promise<void> }
  */
 exports.down = function (knex) {
-    return knex.schema.dropTable("planters").dropTable("zones").dropTable("cultivars").dropTable("plants").dropTable("types");
+    return knex.schema.dropTable("planters").dropTable("cultivars").dropTable("plants").dropTable("types");
 };
