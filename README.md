@@ -118,14 +118,12 @@ response:
             name: 'Cherokee Purple',
             description: 'The Cherokee Purple Heirloom Tomato is a purple coloured variety, cultivated by a Native American Cherokee tribe. The plants are highly productive, producing loads of 12 ounce beefsteak tomatoes with deep red interiors. Its complex sweet flavours make it one of the best tasting heirlooms.',
             maturity_in_days: 80,
-            planter_favorite: false
         },
         {
             id: <string>,
             name: 'Brandywine, Red',
             description: 'This is an old Amish tomato named after Brandywine Creek in Chester County, PA. Red Brandywine Heirloom Tomatoes have vigorous vines and produce tomatoes that consistently win contests for the best tomato flavour. The fruit are large with an interesting shape and ripen later in the season.',
             maturity_in_days: 85,
-            planter_favorite: false
 
         }, ...
     ]}
@@ -144,11 +142,8 @@ response:
     sun: 'full',
     frost_tolerance: 'none',
     maturity_in_days: 80,
-    seed_spacing_in: 12,
-    footprint: 1,
+    footprint: 12,
     support: true,
-    planter_favorite: false,
-    perenial_zone: 9
 }
 ```
 - GET `api/plants/:id/friends` get a list of positive-influence companions for a specific plant. responds with a list of plants
@@ -210,11 +205,9 @@ response:
     sun: 'full',
     frost: 'not-tolerant',
     maturity_in_days: 80,
-    seed_spacing_in: 12,
-    footprint: 1,
+    footprint: 12,
     support: true,
-    planter_favorite: false,
-    perenial_zone: 9
+   
 }, ...
 ]
 ``` -->
