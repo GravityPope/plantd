@@ -1,4 +1,5 @@
 import "./Drawer.scss";
+import SearchFilters from "../SearchFIlters/SearchFIlters";
 
 export default function Drawer(props) {
   const { id, list, filteredList, setFilteredList } = props;
@@ -18,6 +19,7 @@ export default function Drawer(props) {
             {list.map((plant) => {
               <Draggable
                 key={plant.plant_id}
+                id={crypto.randomUUID()}
                 type_id={plant.type_id}
                 plant_id={plant.plant_id}
                 type={plant.type}
@@ -42,6 +44,7 @@ export default function Drawer(props) {
             {filteredList.map((plant) => {
               <Draggable
                 key={plant.plant_id}
+                id={crypto.randomUUID()}
                 type_id={plant.type_id}
                 plant_id={plant.plant_id}
                 type={plant.type}
@@ -67,16 +70,20 @@ export default function Drawer(props) {
             setFilteredList={setFilteredList}
           />
           <ul className="list--planter">
-            {list.map((plant) => {
+            {list.map((planter) => {
               <Draggable
-                dndPlantList={dndPlantList}
-                setDndPlantList={setDndPlantList}
-                key={plant.plant_id}
-                type_id={plant.type_id}
-                plant_id={plant.plant_id}
-                type={plant.type}
-                plant_name={plant.plant_name}
-                plant_description={plant.plant_description}
+              dndPlantList={dndPlantList} 
+              setDndPlantList={setDndPlantList}
+              key={planter.id}
+              id={crypto.randomUUID()}
+              planter_id= {planter.id}
+              name= {planter.name}
+              type= {planter.type}
+              height={planter.height}
+              width={planter.width}
+              length={planter.length}
+              radius={planter.radius}
+              round={planter.round}
               />;
             })}
           </ul>
@@ -93,16 +100,20 @@ export default function Drawer(props) {
             setFilteredList={setFilteredList}
           />
           <ul className="list--planter">
-            {filteredList.map((plant) => {
+            {filteredList.map((planter) => {
               <Draggable
-                dndPlantList={dndPlantList}
-                setDndPlantList={setDndPlantList}
-                key={plant.plant_id}
-                type_id={plant.type_id}
-                plant_id={plant.plant_id}
-                type={plant.type}
-                plant_name={plant.plant_name}
-                plant_description={plant.plant_description}
+              dndPlantList={dndPlantList} 
+              setDndPlantList={setDndPlantList}
+              key={planter.id}
+              id={crypto.randomUUID()}
+              planter_id= {planter.id}
+              name= {planter.name}
+              type= {planter.type}
+              height={planter.height}
+              width={planter.width}
+              length={planter.length}
+              radius={planter.radius}
+              round={planter.round}
               />;
             })}
           </ul>
