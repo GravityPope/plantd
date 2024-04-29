@@ -49,7 +49,6 @@ export default function PlannerPage() {
 
   return (
     <>
-      <Header />
       <Drawer />
       <Drawer />
       <Canvas />

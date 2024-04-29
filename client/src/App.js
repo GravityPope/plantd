@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import PlannerPage from "./pages/PlannerPage/PlannerPage";
 
 function App() {
   return (
@@ -6,10 +7,7 @@ function App() {
     <BrowserRouter>
     <Header />
     <Routes>
-      {/* <Route path="/" element={<VideoPage/>} />
-      <Route path="/videos/:videoId" element={<VideoPage/>} />
-      <Route path="/upload" element={<UploadPage/>} />
-      <Route path="*" element={<NotFound/>} /> */}
+      <Route path="/" element={<PlannerPage/>} />
     </Routes>
     </BrowserRouter>
   </>
