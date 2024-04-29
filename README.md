@@ -418,6 +418,7 @@ General functionality goals for this sprint:
 - planning phase, plan components and backend structure - 2 days
 - all `plants` endpoints functional, except `/friends` and `/foes` -2 days
 - limited dataset for types, plants, and planters tables. One default cultivar for each plant
+- styled for tablet/desktop
 - 'guest' Plan Builder Page functionality - until ship
   - able to search for plants using filters only (front end implementation, no cultivar name search)
   - drag planters and plants out of their drawers
@@ -429,6 +430,7 @@ General functionality goals for this sprint:
 <!-- Your project will be marked based on what you committed to in the above document. Under nice-to-haves, you can list any additional features you may complete if you have extra time, or after finishing. -->
 
 - `users and login` endpoints
+- fully responsive
 - saving functionality
 - implement auth
 - implement string search
