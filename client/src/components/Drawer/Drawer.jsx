@@ -8,13 +8,13 @@ export default function Drawer(props) {
     // no filters applied
     if (!filteredList) {
       return (
-        <section className="drawer">
+        <section className="drawer--plant">
           <SearchFilters
             list={list}
             filteredList={filteredList}
             setFilteredList={setFilteredList}
           />
-          <ul className="plant-list">
+          <ul className="list--plant">
             {list.map((plant) => {
               <Draggable
                 key={plant.plant_id}
@@ -32,13 +32,13 @@ export default function Drawer(props) {
     // filters applied
     else {
       return (
-        <section className="drawer">
+        <section className="drawer--plant">
           <SearchFilters
             list={list}
             filteredList={filteredList}
             setFilteredList={setFilteredList}
           />
-          <ul className="plant-list">
+          <ul className="list--plant">
             {filteredList.map((plant) => {
               <Draggable
                 key={plant.plant_id}
@@ -60,13 +60,13 @@ export default function Drawer(props) {
     // no filters applied
     if (!filteredList) {
       return (
-        <section className="drawer">
+        <section className="drawer--planter">
           <SearchFilters
             list={list}
             filteredList={filteredList}
             setFilteredList={setFilteredList}
           />
-          <ul className="plant-list">
+          <ul className="list--planter">
             {list.map((plant) => {
               <Draggable
                 dndPlantList={dndPlantList}
@@ -86,13 +86,13 @@ export default function Drawer(props) {
     // filters applied
     else {
       return (
-        <section className="drawer">
+        <section className="drawer--planter">
           <SearchFilters
             list={list}
             filteredList={filteredList}
             setFilteredList={setFilteredList}
           />
-          <ul className="plant-list">
+          <ul className="list--planter">
             {filteredList.map((plant) => {
               <Draggable
                 dndPlantList={dndPlantList}
