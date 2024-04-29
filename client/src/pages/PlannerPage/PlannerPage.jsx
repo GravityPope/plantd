@@ -2,6 +2,9 @@ import "./PlannerPage.scss";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { BASE_URL } from "../../utils/utils";
+import Drawer from "../../components/Drawer/Drawer";
+import Canvas from "../../components/Canvas/Canvas";
+import { DndContext } from "@dnd-kit/core";
 
 export default function PlannerPage() {
   // States
@@ -48,10 +51,25 @@ export default function PlannerPage() {
   }
 
   return (
-    <>
-      <Drawer />
-      <Drawer />
-      <Canvas />
-    </>
+    <DndContext>
+      <Drawer
+        id={1}
+        list={plantList}
+        filteredList={plantFilteredList}
+        setFilteredList={setPlantFilteredList}
+      />
+      <Drawer
+        id={2}
+        list={planterList}
+        dndPlantList={dndPlantList}
+        setDndPlantList={setDndPlantList}
+        filteredList={planterFilteredList}
+        setFilteredList={setPlanterFilteredList}
+      />
+      <Canvas
+        dndPlanterList={dndPlanterList}
+        setDndPlanterList={setDndPlanterList}
+      />
+    </DndContext>
   );
 }

@@ -1,8 +1,11 @@
 import "./Drawer.scss";
 import SearchFilters from "../SearchFIlters/SearchFIlters";
+import Draggable from "../Draggable/Draggable";
 
 export default function Drawer(props) {
   const { id, list, filteredList, setFilteredList } = props;
+
+  //TODO: handle click function for drawer open/close
 
   // Plant drawer
   if (!props.dndPlantList) {
