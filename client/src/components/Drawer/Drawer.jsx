@@ -7,12 +7,14 @@ import ModalPlant from "../ModalPlant/ModalPlant";
 export default function Drawer(props) {
   const { id, list, filteredList, setFilteredList, showModal, onAddItem } =
     props;
+    console.log(`drawer component!`)
 
   // Plant drawer
-  if (!id === "plants") {
+  if (id === "plants") {
     if (!showModal) return;
     // no filters applied
     if (!filteredList) {
+    
       return (
         <section className="drawer--plant">
           <SearchFilters
@@ -25,7 +27,7 @@ export default function Drawer(props) {
               {list.map((plant) => {
                 <ModalPlant
                   key={plant.plant_id}
-                  id={crypto.randomUUID()}
+                  id={`plant-${crypto.randomUUID()}`}
                   type_id={plant.type_id}
                   plant_id={plant.plant_id}
                   type={plant.type}
@@ -53,7 +55,7 @@ export default function Drawer(props) {
             {filteredList.map((plant) => {
               <ModalPlant
                 key={plant.plant_id}
-                id={crypto.randomUUID()}
+                id={`plant-${crypto.randomUUID()}`}
                 type_id={plant.type_id}
                 plant_id={plant.plant_id}
                 type={plant.type}
@@ -75,6 +77,7 @@ export default function Drawer(props) {
     if(!showModal) return;
     // no filters applied
     if (!filteredList) {
+   
       return (
         <section className="drawer--planter">
           <SearchFilters
@@ -87,7 +90,7 @@ export default function Drawer(props) {
             {list.map((planter) => {
               <ModalPlanter
                 key={planter.id}
-                id={crypto.randomUUID()}
+                id={`container-${crypto.randomUUID()}`}
                 planter_id={planter.id}
                 name={planter.name}
                 type={planter.type}
@@ -118,7 +121,7 @@ export default function Drawer(props) {
             {filteredList.map((planter) => {
               <ModalPlanter
                 key={planter.id}
-                id={crypto.randomUUID()}
+                id={`container-${crypto.randomUUID()}`}
                 planter_id={planter.id}
                 name={planter.name}
                 type={planter.type}

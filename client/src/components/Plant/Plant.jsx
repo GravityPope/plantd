@@ -1,7 +1,7 @@
 
 import { useSortable } from "@dnd-kit/sortable";
 
-export default function ModalPlant(props) {
+export default function Plant(props) {
   const {
     attributes,
     listeners,
@@ -13,7 +13,7 @@ export default function ModalPlant(props) {
     type: "plant",
   } });
  
-    const {id, type_id, plant_id, type, plant_name, plant_description, onAddItem } = props;
+    const {id, type_id, plant_id, type, plant_name, plant_description } = props;
 
     const style = {
       transform: CSS.Transform.toString(transform),
@@ -28,16 +28,6 @@ export default function ModalPlant(props) {
     };
 
 
-    const thisPlant = {
-        // might need to assign a new id here for multiple of same plant
-        id,
-        type_id,
-        plant_id,
-        type,
-        plant_name,
-        plant_description
-
-    }
 
     return (
       <div
@@ -47,12 +37,7 @@ export default function ModalPlant(props) {
         {...listeners}
         {...attributes}
       >
-        <h3 className="plant__name">{`${plant_name}`}</h3>
-        <button onClick={()=>{
-            onAddItem(thisPlant)
-        }}>Add Plant</button>
+        <h3 className="plant__name">{plant_name}</h3>
       </div>
     );
-
-  
 }

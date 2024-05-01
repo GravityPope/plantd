@@ -3,9 +3,22 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { BASE_URL } from "../../utils/utils";
 import Drawer from "../../components/Drawer/Drawer";
-import Canvas from "../../components/Canvas/Canvas";
-import { DndContext } from "@dnd-kit/core";
+import {
+  DndContext,
+  KeyboardSensor,
+  PointerSensor,
+  closestCorners,
+  useSensor,
+  useSensors,
+  DragOverlay,
+} from "@dnd-kit/core";
+import {
+  SortableContext,
+  arrayMove,
+  sortableKeyboardCoordinates,
+} from "@dnd-kit/sortable";
 import Planter from "../../components/Planter/Planter";
+import Plant from "../../components/Plant/Plant";
 
 export default function PlannerPage() {
   // States
@@ -28,7 +41,7 @@ export default function PlannerPage() {
   useEffect(() => {
     const fetchPlantList = async () => {
       try {
-        const plantResponse = await axios.get(`${BASE_URL}/plants`);
+        const plantResponse = await axios.get(`${BASE_URL}/api/plants`);
         setPlantList(plantResponse.data);
       } catch (error) {
         console.error(error);
@@ -36,7 +49,7 @@ export default function PlannerPage() {
     };
     const fetchPlanterList = async () => {
       try {
-        const planterResponse = await axios.get(`${BASE_URL}/planters`);
+        const planterResponse = await axios.get(`${BASE_URL}/api/planters`);
         setPlanterList(planterResponse.data);
       } catch (error) {
         console.error(error);
@@ -69,7 +82,7 @@ export default function PlannerPage() {
   //Adding Plants to Planters
   function onAddPlant(newPlant) {
     const container = canvasPlanterList.find(
-      (container) => container.id === currentContainerId
+      (container) => container.id === currentPlanterId
     );
     container.plants.push(newPlant);
 
@@ -361,24 +374,45 @@ export default function PlannerPage() {
       >
         Add Planter
       </button>
+      {/* <button onClick={() => {
+          setShowAddPlantModal(true);
+        }}
+      >
+        Add Plant
+      </button> */}
 
-      <SortableContext items={canvasPlanterList.map((container) => container.id)}>
-        {canvasPlanterList.map((container) => (
+      <SortableContext
+        items={canvasPlanterList.map((container) => container.id)}
+      >
+        {canvasPlanterList.map((planter) => (
           <Planter
-            key={container.id}
-            title={container.title}
-            id={container.id}
+            key={planter.id}
+            id={planter.id}
+            planter_id={planter.planter_id}
+            name={planter.name}
+            type={planter.type}
+            height={planter.height}
+            width={planter.width}
+            length={planter.length}
+            radius={planter.radius}
+            round={planter.round}
             onAddItem={() => {
-              setShowAddItemModal(true);
-              setCurrentContainerId(container.id);
+              setShowAddPlantModal(true);
+              setCurrentPlanterId(planter.id);
             }}
           >
-            <SortableContext items={container.items.map((i) => i.id)}>
-              <div>
-                {container.items.map((item) => (
-                  <Drag key={item.id} id={item.id} title={item.title} />
-                ))}
-              </div>
+            <SortableContext items={canvasPlanterList.plants.map((i) => i.id)}>
+              {canvasPlanterList.plants.map((plant) => (
+                <Plant
+                  key={plant.plant_id}
+                  id={plant.id}
+                  type_id={plant.type_id}
+                  plant_id={plant.plant_id}
+                  type={plant.type}
+                  plant_name={plant.plant_name}
+                  plant_description={plant.plant_description}
+                />
+              ))}
             </SortableContext>
           </Planter>
         ))}

@@ -1,6 +1,6 @@
 import { useSortable } from "@dnd-kit/sortable";
 
-export default function ModalPlanter(props) {
+export default function Planter(props) {
   const {
     attributes,
     listeners,
