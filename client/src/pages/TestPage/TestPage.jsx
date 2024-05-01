@@ -9,6 +9,7 @@ import {
   DragStartEvent,
   DragMoveEvent,
   DragEndEvent,
+  DragOverlay,
 } from "@dnd-kit/core";
 import Drag from "../../components/Drag/Drag";
 import Drop from "../../components/Drop/Drop";
@@ -58,6 +59,11 @@ export default function TestPage() {
           title: 'Item 4'
         }
       ]
+    },
+    {
+      id: `container-${crypto.randomUUID()}`,
+      title: 'Container 3',
+      items: []
     }
 
   ]);
@@ -78,6 +84,14 @@ export default function TestPage() {
         container.items.find((item) => item.id === id)
       );
     }
+  }
+
+  function findItemTitle (id) {
+    const container = containers.find((item)=> item.id === currentContainerId);
+    if(!container) return '';
+    const item = container.items.find((item)=> item.id === id);
+    if (!item) return '';
+    return item.title;
   }
 
   const sensors = useSensors(
@@ -333,6 +347,13 @@ export default function TestPage() {
           </Drop>
         ))}
       </SortableContext>
+      {/* <DragOverlay>
+        {activeId && activeId.toString().includes('item') && (
+          <Drag id={activeId} title={findItemTitle(activeId)} />
+        )
+
+        }
+      </DragOverlay> */}
     </DndContext>
   );
 }
