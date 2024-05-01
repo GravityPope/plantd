@@ -4,7 +4,7 @@ import Drag from "../Drag/Drag";
 import React from "react";
 
 export default function ItemsModal(props){
-    const {showModal, setShowModal, itemsList, onAddItem} =props;
+    const {showModal, itemsList, onAddItem} =props;
 
     if(!showModal) return;
 

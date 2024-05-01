@@ -3,7 +3,7 @@ import React from "react";
 import Drop from "../Drop/Drop";
 
 export default function ContainerssModal(props){
-    const {showModal, setShowModal, containersList, onAddContainer} =props;
+    const {showModal, containersList, onAddContainer} =props;
 
     if(!showModal) return;
 

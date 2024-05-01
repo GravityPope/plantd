@@ -2,13 +2,9 @@ import {
   DndContext,
   KeyboardSensor,
   PointerSensor,
-  UniqueIdentifier,
   closestCorners,
   useSensor,
   useSensors,
-  DragStartEvent,
-  DragMoveEvent,
-  DragEndEvent,
   DragOverlay,
 } from "@dnd-kit/core";
 import Drag from "../../components/Drag/Drag";
@@ -22,15 +18,6 @@ import {
 import React from "react";
 import ItemsModal from "../../components/ItemsModal/ItemsModal";
 import ContainerssModal from "../../components/ContainersModal/ContainersModal";
-
-// type DNDType = {
-//   id: UniqueIdentifier;
-//   title: string;
-//   items: {
-//     id: UniqueIdentifier;
-//     title: string;
-//   }[];
-// };
 
 export default function TestPage() {
   const [containers, setContainers] = useState([
@@ -78,8 +65,7 @@ export default function TestPage() {
     {
       id: `container-${crypto.randomUUID()}`,
       title: "Container 1",
-      items: [
-      ],
+      items: [],
     },
     {
       id: `container-${crypto.randomUUID()}`,
@@ -91,7 +77,7 @@ export default function TestPage() {
       title: "Container 3",
       items: [],
     },
-  ])
+  ]);
   const [activeId, setActiveId] = useState(null);
   const [currentContainerId, setCurrentContainerId] = useState();
   const [showAddContainerModal, setShowContainerModal] = useState(false);
@@ -118,31 +104,30 @@ export default function TestPage() {
   }
 
   //Adding items to container
-  function onAddItem(id, title){
-    const container = containers.find((container)=> container.id === currentContainerId);
+  function onAddItem(id, title) {
+    const container = containers.find(
+      (container) => container.id === currentContainerId
+    );
     container.items.push({
       id,
-      title
-    })
+      title,
+    });
     setContainers([...containers]);
     setShowAddItemModal(false);
-
   }
 
   //Adding containers
-  function onAddContainer (id, title){
+  function onAddContainer(id, title) {
     setContainers([
       ...containers,
       {
         id,
         title,
-        items:[],
-      }
-    ])
+        items: [],
+      },
+    ]);
     setShowContainerModal(false);
-
   }
-
 
   // Dnd Context
   const sensors = useSensors(
@@ -393,13 +378,17 @@ export default function TestPage() {
           onAddItem={onAddItem}
         />
         <ContainerssModal
-        showModal={showAddContainerModal}
-        containersList={containersList}
-        onAddContainer={onAddContainer}
+          showModal={showAddContainerModal}
+          containersList={containersList}
+          onAddContainer={onAddContainer}
         />
-        <button onClick={ ()=>{
-          setShowContainerModal(true)
-        }}>Add Container</button>
+        <button
+          onClick={() => {
+            setShowContainerModal(true);
+          }}
+        >
+          Add Container
+        </button>
 
         <SortableContext items={containers.map((container) => container.id)}>
           {containers.map((container) => (
@@ -422,7 +411,6 @@ export default function TestPage() {
             </Drop>
           ))}
         </SortableContext>
-
 
         {/* <DragOverlay>
         {activeId && activeId.toString().includes('item') && (
