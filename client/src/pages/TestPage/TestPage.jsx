@@ -20,6 +20,8 @@ import {
   sortableKeyboardCoordinates,
 } from "@dnd-kit/sortable";
 import React from "react";
+import ItemsModal from "../../components/ItemsModal/ItemsModal";
+import ContainerssModal from "../../components/ContainersModal/ContainersModal";
 
 // type DNDType = {
 //   id: UniqueIdentifier;
@@ -34,43 +36,64 @@ export default function TestPage() {
   const [containers, setContainers] = useState([
     {
       id: `container-${crypto.randomUUID()}`,
-      title: 'Container 1',
+      title: "Container 1",
       items: [
         {
           id: `item-${crypto.randomUUID()}`,
-          title: 'Item 1'
+          title: "Item 5",
         },
-        {
-          id: `item-${crypto.randomUUID()}`,
-          title: 'Item 2'
-        }
-      ]
+      ],
     },
     {
       id: `container-${crypto.randomUUID()}`,
-      title: 'Container 2',
-      items: [
-        {
-          id: `item-${crypto.randomUUID()}`,
-          title: 'Item 3'
-        },
-        {
-          id: `item-${crypto.randomUUID()}`,
-          title: 'Item 4'
-        }
-      ]
+      title: "Container 2",
+      items: [],
     },
     {
       id: `container-${crypto.randomUUID()}`,
-      title: 'Container 3',
-      items: []
-    }
-
+      title: "Container 3",
+      items: [],
+    },
   ]);
+
+  const [itemsList, setItemsList] = useState([
+    {
+      id: `item-${crypto.randomUUID()}`,
+      title: "Item 1",
+    },
+    {
+      id: `item-${crypto.randomUUID()}`,
+      title: "Item 2",
+    },
+    {
+      id: `item-${crypto.randomUUID()}`,
+      title: "Item 3",
+    },
+    {
+      id: `item-${crypto.randomUUID()}`,
+      title: "Item 4",
+    },
+  ]);
+  const [containersList, setContaintersList] = useState([
+    {
+      id: `container-${crypto.randomUUID()}`,
+      title: "Container 1",
+      items: [
+      ],
+    },
+    {
+      id: `container-${crypto.randomUUID()}`,
+      title: "Container 2",
+      items: [],
+    },
+    {
+      id: `container-${crypto.randomUUID()}`,
+      title: "Container 3",
+      items: [],
+    },
+  ])
   const [activeId, setActiveId] = useState(null);
   const [currentContainerId, setCurrentContainerId] = useState();
-  const [containerName, setContainerName] = useState("");
-  const [itemName, setItemName] = useState("");
   const [showAddContainerModal, setShowContainerModal] = useState(false);
   const [showAddItemModal, setShowAddItemModal] = useState(false);
 
@@ -86,14 +109,42 @@ export default function TestPage() {
     }
   }
 
-  function findItemTitle (id) {
-    const container = containers.find((item)=> item.id === currentContainerId);
-    if(!container) return '';
-    const item = container.items.find((item)=> item.id === id);
-    if (!item) return '';
+  function findItemTitle(id) {
+    const container = containers.find((item) => item.id === currentContainerId);
+    if (!container) return "";
+    const item = container.items.find((item) => item.id === id);
+    if (!item) return "";
     return item.title;
   }
 
+  //Adding items to container
+  function onAddItem(id, title){
+    const container = containers.find((container)=> container.id === currentContainerId);
+    container.items.push({
+      id,
+      title
+    })
+    setContainers([...containers]);
+    setShowAddItemModal(false);
+
+  }
+
+  //Adding containers
+  function onAddContainer (id, title){
+    setContainers([
+      ...containers,
+      {
+        id,
+        title,
+        items:[],
+      }
+    ])
+    setShowContainerModal(false);
+
+  }
+
+
+  // Dnd Context
   const sensors = useSensors(
     useSensor(PointerSensor),
     useSensor(KeyboardSensor, {
@@ -327,33 +378,60 @@ export default function TestPage() {
   };
 
   return (
-    <DndContext
-      sensors={sensors}
-      collisionDetection={closestCorners}
-      onDragStart={handleDragStart}
-      onDragMove={handleDragMove}
-      onDragEnd={handleDragEnd}
-    >
-      <SortableContext items={containers.map((container) => container.id)}>
-        {containers.map((container) => (
-          <Drop key={container.id} title={container.title} id={container.id}>
-            <SortableContext items={container.items.map((i) => i.id)}>
-              <div>
-                {container.items.map((item) => (
-                  <Drag key={item.id} id={item.id} title={item.title} />
-                ))}
-              </div>
-            </SortableContext>
-          </Drop>
-        ))}
-      </SortableContext>
-      {/* <DragOverlay>
+    <>
+      <DndContext
+        sensors={sensors}
+        collisionDetection={closestCorners}
+        onDragStart={handleDragStart}
+        onDragMove={handleDragMove}
+        onDragEnd={handleDragEnd}
+      >
+        <ItemsModal
+          showModal={showAddItemModal}
+          setShowModal={setShowAddItemModal}
+          itemsList={itemsList}
+          onAddItem={onAddItem}
+        />
+        <ContainerssModal
+        showModal={showAddContainerModal}
+        containersList={containersList}
+        onAddContainer={onAddContainer}
+        />
+        <button onClick={ ()=>{
+          setShowContainerModal(true)
+        }}>Add Container</button>
+
+        <SortableContext items={containers.map((container) => container.id)}>
+          {containers.map((container) => (
+            <Drop
+              key={container.id}
+              title={container.title}
+              id={container.id}
+              onAddItem={() => {
+                setShowAddItemModal(true);
+                setCurrentContainerId(container.id);
+              }}
+            >
+              <SortableContext items={container.items.map((i) => i.id)}>
+                <div>
+                  {container.items.map((item) => (
+                    <Drag key={item.id} id={item.id} title={item.title} />
+                  ))}
+                </div>
+              </SortableContext>
+            </Drop>
+          ))}
+        </SortableContext>
+
+
+        {/* <DragOverlay>
         {activeId && activeId.toString().includes('item') && (
           <Drag id={activeId} title={findItemTitle(activeId)} />
         )
 
         }
       </DragOverlay> */}
-    </DndContext>
+      </DndContext>
+    </>
   );
 }

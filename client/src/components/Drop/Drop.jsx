@@ -5,7 +5,7 @@ import { CSS } from "@dnd-kit/utilities";
 import { pointerWithin } from "@dnd-kit/core";
 
 export default function Drop(props) {
-  const { id, children, title } = props;
+  const { id, children, title, onAddItem } = props;
 
   const {
     attributes,
@@ -48,9 +48,9 @@ export default function Drop(props) {
       </div>
 
       {children}
-      {/* <Button variant="ghost" onClick={onAddItem}>
+      <button onClick={onAddItem}>
         Add Item
-      </Button> */}
+      </button>
     </div>
   );
 }
