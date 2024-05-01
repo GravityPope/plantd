@@ -5,6 +5,7 @@ import { BASE_URL } from "../../utils/utils";
 import Drawer from "../../components/Drawer/Drawer";
 import Canvas from "../../components/Canvas/Canvas";
 import { DndContext } from "@dnd-kit/core";
+import Planter from "../../components/Planter/Planter";
 
 export default function PlannerPage() {
   // States
@@ -57,16 +58,16 @@ export default function PlannerPage() {
     }
   }
 
-//   function findItemTitle(id) {
-//     const container = containers.find((item) => item.id === currentContainerId);
-//     if (!container) return "";
-//     const item = container.items.find((item) => item.id === id);
-//     if (!item) return "";
-//     return item.title;
-//   }
+  //   function findItemTitle(id) {
+  //     const container = containers.find((item) => item.id === currentContainerId);
+  //     if (!container) return "";
+  //     const item = container.items.find((item) => item.id === id);
+  //     if (!item) return "";
+  //     return item.title;
+  //   }
 
-//Adding Plants to Planters
-function onAddPlant(newPlant) {
+  //Adding Plants to Planters
+  function onAddPlant(newPlant) {
     const container = canvasPlanterList.find(
       (container) => container.id === currentContainerId
     );
@@ -76,12 +77,9 @@ function onAddPlant(newPlant) {
     setShowAddPlantModal(false);
   }
 
-  //Adding Planters
+  //Adding Planters to Canvas
   function onAddPlanter(newPlanter) {
-    setCanvasPlanterList([
-      ...canvasPlanterList,
-      newPlanter
-    ]);
+    setCanvasPlanterList([...canvasPlanterList, newPlanter]);
     setShowAddPlanterModal(false);
   }
 
@@ -144,7 +142,6 @@ function onAddPlant(newPlant) {
 
         setCanvasPlanterList(newPlants);
       } else {
-
         // in a different container
         let newPlants = [...canvasPlanterList];
         const [removedPlant] = newPlants[activeContainerIndex].plants.splice(
@@ -220,7 +217,11 @@ function onAddPlant(newPlant) {
 
       // swap active and over contianer
       let newPlants = [...canvasPlanterList];
-      newPlants = arrayMove(newPlants, activeContainerIndex, overContainerIndex);
+      newPlants = arrayMove(
+        newPlants,
+        activeContainerIndex,
+        overContainerIndex
+      );
       setCanvasPlanterList(newPlants);
     }
 
@@ -329,26 +330,59 @@ function onAddPlant(newPlant) {
     );
   }
 
-    return (
-  <DndContext>
-    <Drawer
-      id={1}
-      list={plantList}
-      filteredList={plantFilteredList}
-      setFilteredList={setPlantFilteredList}
-    />
-    <Drawer
-      id={2}
-      list={planterList}
-      dndPlantList={dndPlantList}
-      setDndPlantList={setDndPlantList}
-      filteredList={planterFilteredList}
-      setFilteredList={setPlanterFilteredList}
-    />
-    <Canvas
-      dndPlanterList={dndPlanterList}
-      setDndPlanterList={setDndPlanterList}
-    />
-  </DndContext>
-    );
+  return (
+    <DndContext
+      sensors={sensors}
+      collisionDetection={closestCorners}
+      onDragStart={handleDragStart}
+      onDragMove={handleDragMove}
+      onDragEnd={handleDragEnd}
+    >
+      <Drawer
+        id="plants"
+        list={plantList}
+        filteredList={plantFilteredList}
+        setFilteredList={setPlantFilteredList}
+        showModal={showAddPlantModal}
+        onAddItem={onAddPlant}
+      />
+      <Drawer
+        id="planters"
+        list={planterList}
+        filteredList={planterFilteredList}
+        setFilteredList={setPlanterFilteredList}
+        showModal={showAddPlanterModal}
+        onAddItem={onAddPlanter}
+      />
+      <button
+        onClick={() => {
+          setShowAddPlanterModal(true);
+        }}
+      >
+        Add Planter
+      </button>
+
+      <SortableContext items={canvasPlanterList.map((container) => container.id)}>
+        {canvasPlanterList.map((container) => (
+          <Planter
+            key={container.id}
+            title={container.title}
+            id={container.id}
+            onAddItem={() => {
+              setShowAddItemModal(true);
+              setCurrentContainerId(container.id);
+            }}
+          >
+            <SortableContext items={container.items.map((i) => i.id)}>
+              <div>
+                {container.items.map((item) => (
+                  <Drag key={item.id} id={item.id} title={item.title} />
+                ))}
+              </div>
+            </SortableContext>
+          </Planter>
+        ))}
+      </SortableContext>
+    </DndContext>
+  );
 }

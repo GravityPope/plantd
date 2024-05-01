@@ -1,14 +1,16 @@
 import "./Drawer.scss";
 import SearchFilters from "../SearchFIlters/SearchFIlters";
-import Draggable from "../Draggable/Draggable";
+import { SortableContext } from "@dnd-kit/sortable";
+import ModalPlanter from "../ModalPlanter/ModalPlanter";
+import ModalPlant from "../ModalPlant/ModalPlant";
 
 export default function Drawer(props) {
-  const { id, list, filteredList, setFilteredList } = props;
-
-  //TODO: handle click function for drawer open/close
+  const { id, list, filteredList, setFilteredList, showModal, onAddItem } =
+    props;
 
   // Plant drawer
-  if (!props.dndPlantList) {
+  if (!id === "plants") {
+    if (!showModal) return;
     // no filters applied
     if (!filteredList) {
       return (
@@ -19,17 +21,20 @@ export default function Drawer(props) {
             setFilteredList={setFilteredList}
           />
           <ul className="list--plant">
-            {list.map((plant) => {
-              <Draggable
-                key={plant.plant_id}
-                id={crypto.randomUUID()}
-                type_id={plant.type_id}
-                plant_id={plant.plant_id}
-                type={plant.type}
-                plant_name={plant.plant_name}
-                plant_description={plant.plant_description}
-              />;
-            })}
+            <SortableContext items={list.map((i) => i.id)}>
+              {list.map((plant) => {
+                <ModalPlant
+                  key={plant.plant_id}
+                  id={crypto.randomUUID()}
+                  type_id={plant.type_id}
+                  plant_id={plant.plant_id}
+                  type={plant.type}
+                  plant_name={plant.plant_name}
+                  plant_description={plant.plant_description}
+                  onAddItem={onAddItem}
+                />;
+              })}
+            </SortableContext>
           </ul>
         </section>
       );
@@ -44,8 +49,9 @@ export default function Drawer(props) {
             setFilteredList={setFilteredList}
           />
           <ul className="list--plant">
+          <SortableContext items={list.map((i) => i.id)}>
             {filteredList.map((plant) => {
-              <Draggable
+              <ModalPlant
                 key={plant.plant_id}
                 id={crypto.randomUUID()}
                 type_id={plant.type_id}
@@ -53,16 +59,20 @@ export default function Drawer(props) {
                 type={plant.type}
                 plant_name={plant.plant_name}
                 plant_description={plant.plant_description}
+                onAddItem={onAddItem}
               />;
             })}
+            </SortableContext>
           </ul>
         </section>
       );
     }
   }
+
+
   // Planter Drawer
   else {
-    const { dndPlantList, setDndPlantList } = props;
+    if(!showModal) return;
     // no filters applied
     if (!filteredList) {
       return (
@@ -73,22 +83,23 @@ export default function Drawer(props) {
             setFilteredList={setFilteredList}
           />
           <ul className="list--planter">
+          <SortableContext items={list.map((i) => i.id)}>
             {list.map((planter) => {
-              <Draggable
-              dndPlantList={dndPlantList} 
-              setDndPlantList={setDndPlantList}
-              key={planter.id}
-              id={crypto.randomUUID()}
-              planter_id= {planter.id}
-              name= {planter.name}
-              type= {planter.type}
-              height={planter.height}
-              width={planter.width}
-              length={planter.length}
-              radius={planter.radius}
-              round={planter.round}
+              <ModalPlanter
+                key={planter.id}
+                id={crypto.randomUUID()}
+                planter_id={planter.id}
+                name={planter.name}
+                type={planter.type}
+                height={planter.height}
+                width={planter.width}
+                length={planter.length}
+                radius={planter.radius}
+                round={planter.round}
+                onAddItem={onAddItem}
               />;
             })}
+            </SortableContext>
           </ul>
         </section>
       );
@@ -103,22 +114,23 @@ export default function Drawer(props) {
             setFilteredList={setFilteredList}
           />
           <ul className="list--planter">
+          <SortableContext items={list.map((i) => i.id)}>
             {filteredList.map((planter) => {
-              <Draggable
-              dndPlantList={dndPlantList} 
-              setDndPlantList={setDndPlantList}
-              key={planter.id}
-              id={crypto.randomUUID()}
-              planter_id= {planter.id}
-              name= {planter.name}
-              type= {planter.type}
-              height={planter.height}
-              width={planter.width}
-              length={planter.length}
-              radius={planter.radius}
-              round={planter.round}
+              <ModalPlanter
+                key={planter.id}
+                id={crypto.randomUUID()}
+                planter_id={planter.id}
+                name={planter.name}
+                type={planter.type}
+                height={planter.height}
+                width={planter.width}
+                length={planter.length}
+                radius={planter.radius}
+                round={planter.round}
+                onAddItem={onAddItem}
               />;
             })}
+            </SortableContext>
           </ul>
         </section>
       );

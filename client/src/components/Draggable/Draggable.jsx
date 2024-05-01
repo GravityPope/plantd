@@ -9,7 +9,9 @@ export default function Draggable(props) {
     transform,
     transition,
     isDragging,
-  } = useSortable({ id: props.id });
+  } = useSortable({ id, data: {
+    type: "plant",
+  } });
   // Plant component
   if (!props.dndPlantList) {
     const { type_id, plant_id, type, plant_name, plant_description } = props;
