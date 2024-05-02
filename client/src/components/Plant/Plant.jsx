@@ -1,5 +1,6 @@
 import { CSS } from "@dnd-kit/utilities";
 import { useSortable } from "@dnd-kit/sortable";
+import { getEmoji } from "../../utils/utils";
 
 export default function Plant(props) {
 
@@ -40,6 +41,7 @@ export default function Plant(props) {
         {...attributes}
       >
         <h3 className="plant__name">{plant_name}</h3>
+        <p>{getEmoji(plant_name)}</p>
       </div>
     );
 }

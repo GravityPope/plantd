@@ -4,6 +4,8 @@ import { SortableContext } from "@dnd-kit/sortable";
 import ModalPlanter from "../ModalPlanter/ModalPlanter";
 import ModalPlant from "../ModalPlant/ModalPlant";
 
+//TODO: add drawer close buttons, figure out why searchFilter list is lagging
+
 export default function Drawer(props) {
   const { id, list, filteredList, setFilteredList, showModal, onAddItem } =
     props;

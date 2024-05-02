@@ -1,5 +1,6 @@
 import { CSS } from "@dnd-kit/utilities";
 import { useSortable } from "@dnd-kit/sortable";
+import { getEmoji } from "../../utils/utils";
 
 export default function ModalPlant(props) {
   const {id, type_id, plant_id, type, plant_name, plant_description, onAddItem } = props;
@@ -49,6 +50,7 @@ export default function ModalPlant(props) {
         {...attributes}
       >
         <h3 className="plant__name"{...listeners}>{`${plant_name}`}</h3>
+        <p>{getEmoji(plant_name)}</p>
         <button type="click" onClick={()=>{
             onAddItem(thisPlant)
         }}>Add Plant</button>
