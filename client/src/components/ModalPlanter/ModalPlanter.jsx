@@ -1,6 +1,20 @@
 import { useSortable } from "@dnd-kit/sortable";
+import { CSS } from "@dnd-kit/utilities";
 
 export default function ModalPlanter(props) {
+  const {
+    id,
+    planter_id,
+    name,
+    type,
+    height,
+    width,
+    length,
+    radius,
+    round,
+    onAddItem,
+  } = props;
+
   const {
     attributes,
     listeners,
@@ -15,18 +29,7 @@ export default function ModalPlanter(props) {
     },
   });
 
-  const {
-    id,
-    planter_id,
-    name,
-    type,
-    height,
-    width,
-    length,
-    radius,
-    round,
-    onAddItem,
-  } = props;
+
 
   const style = {
     transform: CSS.Transform.toString(transform),
@@ -53,19 +56,18 @@ export default function ModalPlanter(props) {
     plants: [],
   };
 
-  console.log(`ModalPlanter component: ${name}`)
+
 
   return (
     <div
       className="planter"
       ref={setNodeRef}
       style={style}
-      {...listeners}
       {...attributes}
     >
-      <h3 className="planter__name">{name}</h3>
+      <h3 className="planter__name" {...listeners}>{name}</h3>
 
-      <button
+      <button type="click"
         onClick={() => {
           onAddItem(thisPlanter);
         }}

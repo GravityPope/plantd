@@ -92,7 +92,8 @@ export default function PlannerPage() {
 
   //Adding Planters to Canvas
   function onAddPlanter(newPlanter) {
-    setCanvasPlanterList([...canvasPlanterList, newPlanter]);
+    canvasPlanterList.push(newPlanter)
+    setCanvasPlanterList(canvasPlanterList);
     setShowAddPlanterModal(false);
   }
 
@@ -353,6 +354,7 @@ export default function PlannerPage() {
     >
       <Drawer
         id="plants"
+        key="plants"
         list={plantList}
         filteredList={plantFilteredList}
         setFilteredList={setPlantFilteredList}
@@ -361,6 +363,7 @@ export default function PlannerPage() {
       />
       <Drawer
         id="planters"
+        key="planters"
         list={planterList}
         filteredList={planterFilteredList}
         setFilteredList={setPlanterFilteredList}
@@ -382,7 +385,7 @@ export default function PlannerPage() {
       </button> */}
 
       <SortableContext
-        items={canvasPlanterList.map((container) => container.id)}
+        items={canvasPlanterList.map((planter) => planter.id)}
       >
         {canvasPlanterList.map((planter) => (
           <Planter
@@ -401,8 +404,8 @@ export default function PlannerPage() {
               setCurrentPlanterId(planter.id);
             }}
           >
-            <SortableContext items={canvasPlanterList.plants.map((i) => i.id)}>
-              {canvasPlanterList.plants.map((plant) => (
+            <SortableContext items={planter.plants.map((i) => i.id)}>
+              {planter.plants.map((plant) => (
                 <Plant
                   key={plant.plant_id}
                   id={plant.id}

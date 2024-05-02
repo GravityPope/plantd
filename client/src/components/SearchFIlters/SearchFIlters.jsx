@@ -34,6 +34,7 @@ export default function SearchFilters(props) {
       {optionList.map((i) => (
         <label>
         <input
+          key={crypto.randomUUID()}
           className="search-filter__checkbox"
           type="checkbox"
           value={i}

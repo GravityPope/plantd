@@ -1,6 +1,22 @@
 import { useSortable } from "@dnd-kit/sortable";
+import { CSS } from "@dnd-kit/utilities";
 
 export default function Planter(props) {
+
+    const {
+        id,
+        planter_id,
+        name,
+        type,
+        height,
+        width,
+        length,
+        radius,
+        round,
+        children,
+        onAddItem,
+      } = props;
+    
   const {
     attributes,
     listeners,
@@ -15,20 +31,7 @@ export default function Planter(props) {
     },
   });
 
-  const {
-    id,
-    planter_id,
-    name,
-    type,
-    height,
-    width,
-    length,
-    radius,
-    round,
-    children,
-    onAddItem,
-  } = props;
-
+ 
   const style = {
     transform: CSS.Transform.toString(transform),
     transition,
