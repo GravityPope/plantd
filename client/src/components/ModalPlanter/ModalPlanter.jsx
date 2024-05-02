@@ -53,6 +53,8 @@ export default function ModalPlanter(props) {
     plants: [],
   };
 
+  console.log(`ModalPlanter component: ${name}`)
+
   return (
     <div
       className="planter"

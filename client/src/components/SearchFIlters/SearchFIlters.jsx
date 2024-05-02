@@ -13,22 +13,35 @@ export default function SearchFilters(props) {
 
   // update filteredList if a filter is checked or unchecked
   function handleChange(e) {
-    if (!filteredList) {
+  
+    if (e.target.checked) {
       const newFilteredList = list.filter((obj) => obj.type === e.target.value);
-      setFilteredList(newFilteredList);
+      filteredList.push(...newFilteredList)
+      setFilteredList(filteredList);
+      console.log("added to list", filteredList)
+     
     } else {
-      setFilteredList([]);
+      const removedFilteredList = filteredList.filter((obj)=> obj.type !== e.target.value)
+      setFilteredList(removedFilteredList);
+      console.log("removed from list", removedFilteredList)
+      
     }
   }
 
   return (
-    <select className="search-filter" onChange={handleChange}>
-      {optionList.map((i) => {
-        <option className="search-filter__checkbox" type="checkbox" value={i}>
-          {" "}
-          `${i}`
-        </option>;
-      })}
-    </select>
+    <div className="search-filter" >
+      <h2>Filter By:</h2>
+      {optionList.map((i) => (
+        <label>
+        <input
+          className="search-filter__checkbox"
+          type="checkbox"
+          value={i}
+          onChange={handleChange}
+        ></input>
+        {i}
+        </label>
+      ))}
+    </div>
   );
 }
