@@ -35,8 +35,8 @@ export default function Planter(props) {
   const style = {
     transform: CSS.Transform.toString(transform),
     transition,
-    width: { length },
-    height: { width },
+    // width: { length },
+    // height: { width },
     border: "2px solid red",
     backgroundColor: "#cccccc",
     margin: "10px",
@@ -46,10 +46,11 @@ export default function Planter(props) {
 
   return (
     <div className="planter" ref={setNodeRef} style={style} {...attributes}>
+
       <div className="planter__name-wrapper" {...listeners}>
         <h3 className="planter__name">{name}</h3>
       </div>
-      <div className="planter__plants-wrapper">{children}</div>
+     {children}
 
       <button onClick={onAddItem}>Add Plants</button>
     </div>

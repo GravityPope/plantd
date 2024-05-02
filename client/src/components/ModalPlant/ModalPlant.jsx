@@ -31,7 +31,7 @@ export default function ModalPlant(props) {
 
     const thisPlant = {
         // might need to assign a new id here for multiple of same plant
-        id,
+        id:`plant-${crypto.randomUUID()}`,
         type_id,
         plant_id,
         type,
@@ -45,12 +45,11 @@ export default function ModalPlant(props) {
         className="plant"
         ref={setNodeRef}
         style={style}
-        {...listeners}
+        
         {...attributes}
       >
-        <h3 className="plant__name">{`${plant_name}`}</h3>
-        <button onClick={()=>{
-          console.log('modalPlant onclick', thisPlant)
+        <h3 className="plant__name"{...listeners}>{`${plant_name}`}</h3>
+        <button type="click" onClick={()=>{
             onAddItem(thisPlant)
         }}>Add Plant</button>
       </div>

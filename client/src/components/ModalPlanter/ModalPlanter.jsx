@@ -44,7 +44,7 @@ export default function ModalPlanter(props) {
   };
 
   const thisPlanter = {
-    id,
+    id:`container-${crypto.randomUUID()}`,
     planter_id,
     name,
     type,

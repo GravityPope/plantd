@@ -1,7 +1,9 @@
-
+import { CSS } from "@dnd-kit/utilities";
 import { useSortable } from "@dnd-kit/sortable";
 
 export default function Plant(props) {
+
+    const {id, type_id, plant_id, type, plant_name, plant_description } = props;
   const {
     attributes,
     listeners,
@@ -13,7 +15,7 @@ export default function Plant(props) {
     type: "plant",
   } });
  
-    const {id, type_id, plant_id, type, plant_name, plant_description } = props;
+  
 
     const style = {
       transform: CSS.Transform.toString(transform),

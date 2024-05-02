@@ -113,6 +113,7 @@ export default function PlannerPage() {
 
   const handleDragMove = (event) => {
     const { active, over } = event;
+    
 
     //Handle sorting of items
     if (
@@ -405,9 +406,10 @@ export default function PlannerPage() {
             }}
           >
             <SortableContext items={planter.plants.map((i) => i.id)}>
+                <div>
               {planter.plants.map((plant) => (
                 <Plant
-                  key={plant.plant_id}
+                  key={plant.id}
                   id={plant.id}
                   type_id={plant.type_id}
                   plant_id={plant.plant_id}
@@ -416,6 +418,7 @@ export default function PlannerPage() {
                   plant_description={plant.plant_description}
                 />
               ))}
+              </div>
             </SortableContext>
           </Planter>
         ))}
