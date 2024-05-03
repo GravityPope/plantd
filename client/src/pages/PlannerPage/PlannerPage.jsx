@@ -94,7 +94,7 @@ export default function PlannerPage() {
 
   //Adding Planters to Canvas
   function onAddPlanter(newPlanter) {
-    canvasPlanterList.push(newPlanter)
+    canvasPlanterList.push(newPlanter);
     setCanvasPlanterList(canvasPlanterList);
     setShowAddPlanterModal(false);
   }
@@ -115,7 +115,6 @@ export default function PlannerPage() {
 
   const handleDragMove = (event) => {
     const { active, over } = event;
-    
 
     //Handle sorting of items
     if (
@@ -366,7 +365,7 @@ export default function PlannerPage() {
         showModal={showAddPlantModal}
         onAddItem={onAddPlant}
       />
-      {console.log("planner page rendering drawer",planterFilteredList)}
+
       <Drawer
         id="planters"
         key="planters"
@@ -392,9 +391,7 @@ export default function PlannerPage() {
         Add Plant
       </button> */}
 
-      <SortableContext
-        items={canvasPlanterList.map((planter) => planter.id)}
-      >
+      <SortableContext items={canvasPlanterList.map((planter) => planter.id)}>
         {canvasPlanterList.map((planter) => (
           <Planter
             key={planter.id}
@@ -413,21 +410,19 @@ export default function PlannerPage() {
             }}
           >
             <div className="plantsort">
-            <SortableContext items={planter.plants.map((i) => i.id)}>
-                
-              {planter.plants.map((plant) => (
-                <Plant
-                  key={plant.id}
-                  id={plant.id}
-                  type_id={plant.type_id}
-                  plant_id={plant.plant_id}
-                  type={plant.type}
-                  plant_name={plant.plant_name}
-                  plant_description={plant.plant_description}
-                />
-              ))}
-             
-            </SortableContext>
+              <SortableContext items={planter.plants.map((i) => i.id)}>
+                {planter.plants.map((plant) => (
+                  <Plant
+                    key={plant.id}
+                    id={plant.id}
+                    type_id={plant.type_id}
+                    plant_id={plant.plant_id}
+                    type={plant.type}
+                    plant_name={plant.plant_name}
+                    plant_description={plant.plant_description}
+                  />
+                ))}
+              </SortableContext>
             </div>
           </Planter>
         ))}

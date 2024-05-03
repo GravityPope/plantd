@@ -40,14 +40,11 @@ export default function SearchFilters(props) {
       const listItems = list.filter((obj) => obj.type === e.target.value);
       const newFilteredList = [...filteredList, ...listItems];
       setFilteredList(newFilteredList);
-      console.log("added to list", newFilteredList);
-    } 
-    else if (!currentCheckbox.isTrue) {
+    } else if (!currentCheckbox.isTrue) {
       const removedFilteredList = filteredList.filter(
         (obj) => obj.type !== e.target.value
       );
       setFilteredList(removedFilteredList);
-      console.log("removed from list", removedFilteredList);
     }
   }
 
@@ -74,7 +71,6 @@ export default function SearchFilters(props) {
                 currentCheckbox.isTrue = currentCheckbox.isTrue ? false : true;
                 // setIsChecked
                 setIsChecked(isChecked);
-                console.log ('checkbox on change', isChecked)
                 handleChange(event);
               }}
             ></input>
