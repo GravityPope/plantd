@@ -13,6 +13,8 @@ export default function ModalPlanter(props) {
     radius,
     round,
     onAddItem,
+    setFilteredList,
+    setIsChecked
   } = props;
 
   const {
@@ -70,6 +72,8 @@ export default function ModalPlanter(props) {
       <button type="click"
         onClick={() => {
           onAddItem(thisPlanter);
+          setFilteredList([]);
+          setIsChecked([])
         }}
       >
         Add To Canvas

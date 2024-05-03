@@ -28,6 +28,7 @@ export default function PlannerPage() {
   const [planterList, setPlanterList] = useState([]);
 
   // Filters for modals
+  const [isChecked, setIsChecked] = useState([]);
   const [plantFilteredList, setPlantFilteredList] = useState([]);
   const [planterFilteredList, setPlanterFilteredList] = useState([]);
 
@@ -360,15 +361,20 @@ export default function PlannerPage() {
         list={plantList}
         filteredList={plantFilteredList}
         setFilteredList={setPlantFilteredList}
+        isChecked={isChecked}
+        setIsChecked={setIsChecked}
         showModal={showAddPlantModal}
         onAddItem={onAddPlant}
       />
+      {console.log("planner page rendering drawer",planterFilteredList)}
       <Drawer
         id="planters"
         key="planters"
         list={planterList}
         filteredList={planterFilteredList}
         setFilteredList={setPlanterFilteredList}
+        isChecked={isChecked}
+        setIsChecked={setIsChecked}
         showModal={showAddPlanterModal}
         onAddItem={onAddPlanter}
       />

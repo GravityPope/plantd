@@ -3,15 +3,15 @@ import SearchFilters from "../SearchFIlters/SearchFIlters";
 import { SortableContext } from "@dnd-kit/sortable";
 import ModalPlanter from "../ModalPlanter/ModalPlanter";
 import ModalPlant from "../ModalPlant/ModalPlant";
-import { useState } from "react";
+
 
 //TODO: add drawer close buttons, figure out why searchFilter list is lagging
 
 export default function Drawer(props) {
-  const { id, list, filteredList, setFilteredList, showModal, onAddItem } =
+  const { id, list, filteredList, setFilteredList,isChecked, setIsChecked, showModal, onAddItem } =
     props;
     // filter states
-    const [isChecked, setIsChecked] = useState([]);
+   
 
   // Plant drawer
   if (id === "plants") {
@@ -40,6 +40,8 @@ export default function Drawer(props) {
                   plant_name={plant.plant_name}
                   plant_description={plant.plant_description}
                   onAddItem={onAddItem}
+                  setFilteredList={setFilteredList}
+                  setIsChecked={setIsChecked}
                 />
               ))}
             </SortableContext>
@@ -48,7 +50,7 @@ export default function Drawer(props) {
       );
     }
     // filters applied
-    else {
+    else if (filteredList.length >0) {
       return (
         <section className="drawer--plant">
           <SearchFilters
@@ -71,6 +73,8 @@ export default function Drawer(props) {
                   plant_name={plant.plant_name}
                   plant_description={plant.plant_description}
                   onAddItem={onAddItem}
+                  setFilteredList={setFilteredList}
+                  setIsChecked={setIsChecked}
                 />
               ))}
             </SortableContext>
@@ -110,6 +114,8 @@ export default function Drawer(props) {
                   radius={planter.radius}
                   round={planter.round}
                   onAddItem={onAddItem}
+                  setFilteredList={setFilteredList}
+                  setIsChecked={setIsChecked}
                 />
               ))}
             </SortableContext>
@@ -118,7 +124,7 @@ export default function Drawer(props) {
       );
     }
     // filters applied
-    else {
+    else if(filteredList.length >0) {
       return (
         <section className="drawer--planter">
           <SearchFilters
@@ -144,6 +150,8 @@ export default function Drawer(props) {
                   radius={planter.radius}
                   round={planter.round}
                   onAddItem={onAddItem}
+                  setFilteredList={setFilteredList}
+                  setIsChecked={setIsChecked}
                 />
               ))}
             </SortableContext>
