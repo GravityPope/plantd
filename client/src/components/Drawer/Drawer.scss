@@ -4,24 +4,56 @@
 @use "../../styles/global" as *;
 
 .drawer{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    top: 20vh;
+    left: 10vw;
+    width: 80vw;
+    background-color: white;
+    border-radius: 20px;
+    padding: 0.5rem;
 
 
     &--plant{
+        @extend .drawer;
 
     }
 
     &--planter{
+        @extend .drawer;
 
+    }
+    &__close{
+        width: 30px;
+        height: 30px;
+        margin-left: auto;
+        margin-right: 0;
     }
 }
 
 .list{
+    display: flex;
+    flex-wrap: wrap;
 
     &--plant{
+        @extend .list;
 
     }
 
     &--planter{
+        @extend .list;
         
     }
+}
+
+.overlay{
+    display:initial;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: #55441bc8;
 }

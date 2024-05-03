@@ -3,6 +3,7 @@ import SearchFilters from "../SearchFIlters/SearchFIlters";
 import { SortableContext } from "@dnd-kit/sortable";
 import ModalPlanter from "../ModalPlanter/ModalPlanter";
 import ModalPlant from "../ModalPlant/ModalPlant";
+import closeIcon from "../../assets/images/close-square-svgrepo-com.svg"
 
 
 //TODO: add drawer close buttons, figure out why searchFilter list is lagging
@@ -19,6 +20,7 @@ export default function Drawer(props) {
     // no filters applied
     if (filteredList.length === 0) {
       return (
+        <div className="overlay">
         <section className="drawer--plant">
           <SearchFilters
             key={crypto.randomUUID()}
@@ -47,11 +49,13 @@ export default function Drawer(props) {
             </SortableContext>
           </ul>
         </section>
+        </div>
       );
     }
     // filters applied
     else if (filteredList.length >0) {
       return (
+        <div className="overlay">
         <section className="drawer--plant">
           <SearchFilters
             key={crypto.randomUUID()}
@@ -80,6 +84,7 @@ export default function Drawer(props) {
             </SortableContext>
           </ul>
         </section>
+        </div>
       );
     }
   }
@@ -90,7 +95,10 @@ export default function Drawer(props) {
     // no filters applied
     if (filteredList.length === 0) {
       return (
+        <div className="overlay">
+        
         <section className="drawer--planter">
+        <img className="drawer__close" src={closeIcon}></img>
           <SearchFilters
             key={crypto.randomUUID()}
             list={list}
@@ -121,11 +129,13 @@ export default function Drawer(props) {
             </SortableContext>
           </ul>
         </section>
+        </div>
       );
     }
     // filters applied
     else if(filteredList.length >0) {
       return (
+        <div className="overlay">
         <section className="drawer--planter">
           <SearchFilters
             key={crypto.randomUUID()}
@@ -157,6 +167,7 @@ export default function Drawer(props) {
             </SortableContext>
           </ul>
         </section>
+        </div>
       );
     }
     

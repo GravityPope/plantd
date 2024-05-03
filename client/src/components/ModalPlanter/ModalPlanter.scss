@@ -1,0 +1,25 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/fonts" as *;
+
+.planter{
+    color: wheat;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(124, 65, 17);
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 0.5rem;
+
+    &__sort{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    &__name{
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 0.5rem;
+    }
+    
+}
