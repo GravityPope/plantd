@@ -9,7 +9,7 @@ import closeIcon from "../../assets/images/close-square-svgrepo-com.svg"
 //TODO: add drawer close buttons, figure out why searchFilter list is lagging
 
 export default function Drawer(props) {
-  const { id, list, filteredList, setFilteredList,isChecked, setIsChecked, showModal, onAddItem } =
+  const { id, list, filteredList, setFilteredList,isChecked, setIsChecked, showModal, setShowModal, onAddItem } =
     props;
     // filter states
    
@@ -30,6 +30,7 @@ export default function Drawer(props) {
             isChecked={isChecked}
             setIsChecked={setIsChecked}
           />
+          <img className="drawer__close" src={closeIcon} onClick={()=>{setShowModal(false)} }></img>
           <ul className="list--plant">
             <SortableContext items={list.map((i) => i.id)}>
               {list.map((plant) => (
@@ -65,6 +66,7 @@ export default function Drawer(props) {
             isChecked={isChecked}
             setIsChecked={setIsChecked}
           />
+          <img className="drawer__close" src={closeIcon} onClick={()=>{setShowModal(false)} }></img>
           <ul className="list--plant">
             <SortableContext items={list.map((i) => i.id)}>
               {filteredList.map((plant) => (
@@ -98,7 +100,7 @@ export default function Drawer(props) {
         <div className="overlay">
         
         <section className="drawer--planter">
-        <img className="drawer__close" src={closeIcon}></img>
+        
           <SearchFilters
             key={crypto.randomUUID()}
             list={list}
@@ -107,6 +109,7 @@ export default function Drawer(props) {
             isChecked={isChecked}
             setIsChecked={setIsChecked}
           />
+          <img className="drawer__close" src={closeIcon} onClick={()=>{setShowModal(false)} }></img>
           <ul className="list--planter">
             <SortableContext items={list.map((i) => i.id)}>
               {list.map((planter) => (
@@ -145,6 +148,7 @@ export default function Drawer(props) {
             isChecked={isChecked}
             setIsChecked={setIsChecked}
           />
+          <img className="drawer__close" src={closeIcon} onClick={()=>{setShowModal(false)} }></img>
           <ul className="list--planter">
             <SortableContext items={list.map((i) => i.id)}>
               {filteredList.map((planter) => (

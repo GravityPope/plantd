@@ -363,6 +363,7 @@ export default function PlannerPage() {
         isChecked={isChecked}
         setIsChecked={setIsChecked}
         showModal={showAddPlantModal}
+        setShowModal={setShowAddPlantModal}
         onAddItem={onAddPlant}
       />
 
@@ -375,6 +376,7 @@ export default function PlannerPage() {
         isChecked={isChecked}
         setIsChecked={setIsChecked}
         showModal={showAddPlanterModal}
+        setShowModal={setShowAddPlanterModal}
         onAddItem={onAddPlanter}
       />
       <button
