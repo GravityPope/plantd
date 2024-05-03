@@ -1,2 +1,17 @@
 @use "./partials/variables" as *;
 @use "./partials/mixins" as *;
+@use "./partials/fonts" as *;
+
+body {
+    font-family: 'Avenir';
+    box-sizing: border-box;
+}
+.emoji {
+    font-size: 4rem;
+    line-height: 4rem;
+    margin: 0;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    padding-top: 1.1rem;
+    padding-bottom: 0rem;
+}

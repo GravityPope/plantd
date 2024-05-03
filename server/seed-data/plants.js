@@ -41,7 +41,7 @@ module.exports = [
   },
   {
     id: "3e6b463b-8e92-4926-b2b1-e842d4c1f1e9",
-    name: "Broccili",
+    name: "Broccoli",
     description:
       "With compact florets and nutrient-rich stalks, Broccoli is a versatile and nutritious vegetable that thrives in gardens, offering a delicious addition to a variety of dishes.",
     default_cultivar: "",

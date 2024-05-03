@@ -409,7 +409,7 @@ export default function PlannerPage() {
               setCurrentPlanterId(planter.id);
             }}
           >
-            <div className="plantsort">
+            <div className="planter__sort">
               <SortableContext items={planter.plants.map((i) => i.id)}>
                 {planter.plants.map((plant) => (
                   <Plant

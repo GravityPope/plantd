@@ -32,8 +32,6 @@ export default function ModalPlant(props) {
   const style = {
     transform: CSS.Transform.toString(transform),
     transition,
-    width: "100px",
-    height: "100px",
     border: "2px solid red",
     backgroundColor: "#cccccc",
     margin: "10px",
@@ -42,7 +40,7 @@ export default function ModalPlant(props) {
   };
 
   const thisPlant = {
-    // might need to assign a new id here for multiple of same plant
+
     id: `plant-${crypto.randomUUID()}`,
     type_id,
     plant_id,
@@ -54,7 +52,7 @@ export default function ModalPlant(props) {
   return (
     <div className="plant" ref={setNodeRef} style={style} {...attributes}>
       <h3 className="plant__name" {...listeners}>{`${plant_name}`}</h3>
-      <p>{getEmoji(plant_name)}</p>
+      <p className="emoji">{getEmoji(plant_name)}</p>
       <button
         type="click"
         onClick={() => {

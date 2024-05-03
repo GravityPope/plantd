@@ -1,0 +1,13 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/fonts" as *;
+
+.plant {
+    width: 5.5rem;
+    height: 5.5rem;
+    background-color: rgba(121, 217, 11, 0.184);
+    border-radius: 20%;
+    padding: 0;
+    margin: 0.2rem;
+    cursor: pointer;
+}

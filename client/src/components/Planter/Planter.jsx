@@ -1,5 +1,6 @@
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
+import './Planter.scss';
 
 export default function Planter(props) {
 
@@ -37,9 +38,6 @@ export default function Planter(props) {
     transition,
     // width: { length },
     // height: { width },
-    border: "2px solid red",
-    backgroundColor: "#cccccc",
-    margin: "10px",
     zIndex: isDragging ? "100" : "auto",
     opacity: isDragging ? 0.3 : 1,
   };
