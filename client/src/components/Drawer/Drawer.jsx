@@ -3,12 +3,15 @@ import SearchFilters from "../SearchFIlters/SearchFIlters";
 import { SortableContext } from "@dnd-kit/sortable";
 import ModalPlanter from "../ModalPlanter/ModalPlanter";
 import ModalPlant from "../ModalPlant/ModalPlant";
+import { useState } from "react";
 
 //TODO: add drawer close buttons, figure out why searchFilter list is lagging
 
 export default function Drawer(props) {
   const { id, list, filteredList, setFilteredList, showModal, onAddItem } =
     props;
+    // filter states
+    const [isChecked, setIsChecked] = useState([]);
 
   // Plant drawer
   if (id === "plants") {
@@ -22,6 +25,8 @@ export default function Drawer(props) {
             list={list}
             filteredList={filteredList}
             setFilteredList={setFilteredList}
+            isChecked={isChecked}
+            setIsChecked={setIsChecked}
           />
           <ul className="list--plant">
             <SortableContext items={list.map((i) => i.id)}>
@@ -51,6 +56,8 @@ export default function Drawer(props) {
             list={list}
             filteredList={filteredList}
             setFilteredList={setFilteredList}
+            isChecked={isChecked}
+            setIsChecked={setIsChecked}
           />
           <ul className="list--plant">
             <SortableContext items={list.map((i) => i.id)}>
@@ -85,6 +92,8 @@ export default function Drawer(props) {
             list={list}
             filteredList={filteredList}
             setFilteredList={setFilteredList}
+            isChecked={isChecked}
+            setIsChecked={setIsChecked}
           />
           <ul className="list--planter">
             <SortableContext items={list.map((i) => i.id)}>
@@ -117,6 +126,8 @@ export default function Drawer(props) {
             list={list}
             filteredList={filteredList}
             setFilteredList={setFilteredList}
+            isChecked={isChecked}
+            setIsChecked={setIsChecked}
           />
           <ul className="list--planter">
             <SortableContext items={list.map((i) => i.id)}>
@@ -140,5 +151,7 @@ export default function Drawer(props) {
         </section>
       );
     }
+    
   }
+
 }

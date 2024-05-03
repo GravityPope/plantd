@@ -21,8 +21,8 @@ export default function Plant(props) {
     const style = {
       transform: CSS.Transform.toString(transform),
       transition,
-      width: "100px",
-      height: "100px",
+    //   width: "100px",
+    //   height: "100px",
       border: "2px solid red",
       backgroundColor: "#cccccc",
       margin: "10px",

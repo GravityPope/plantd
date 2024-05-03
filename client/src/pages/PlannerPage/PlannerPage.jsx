@@ -11,6 +11,7 @@ import {
   useSensor,
   useSensors,
   DragOverlay,
+  closestCenter,
 } from "@dnd-kit/core";
 import {
   SortableContext,
@@ -405,8 +406,9 @@ export default function PlannerPage() {
               setCurrentPlanterId(planter.id);
             }}
           >
+            <div className="plantsort">
             <SortableContext items={planter.plants.map((i) => i.id)}>
-                <div>
+                
               {planter.plants.map((plant) => (
                 <Plant
                   key={plant.id}
@@ -418,8 +420,9 @@ export default function PlannerPage() {
                   plant_description={plant.plant_description}
                 />
               ))}
-              </div>
+             
             </SortableContext>
+            </div>
           </Planter>
         ))}
       </SortableContext>
