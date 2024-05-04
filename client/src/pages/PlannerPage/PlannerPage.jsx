@@ -28,17 +28,18 @@ export default function PlannerPage() {
   const [plantList, setPlantList] = useState([]);
   const [planterList, setPlanterList] = useState([]);
 
-  // Filters for modals
+  // Modals
   const [isChecked, setIsChecked] = useState([]);
   const [plantFilteredList, setPlantFilteredList] = useState([]);
   const [planterFilteredList, setPlanterFilteredList] = useState([]);
+  const [showAddPlanterModal, setShowAddPlanterModal] = useState(false);
+  const [showAddPlantModal, setShowAddPlantModal] = useState(false);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
 
   // Drag and Drop
   const [canvasPlanterList, setCanvasPlanterList] = useState([]);
   const [activeId, setActiveId] = useState(null);
   const [currentPlanterId, setCurrentPlanterId] = useState();
-  const [showAddPlanterModal, setShowAddPlanterModal] = useState(false);
-  const [showAddPlantModal, setShowAddPlantModal] = useState(false);
 
   //GET and SET plant and planter lists on mount
   useEffect(() => {
@@ -96,6 +97,16 @@ export default function PlannerPage() {
     canvasPlanterList.push(newPlanter);
     setCanvasPlanterList(canvasPlanterList);
     setShowAddPlanterModal(false);
+  }
+  // Delete Planters from Canvas
+  function handlePlanterDelete(id) {
+    const activeContainerIndex = canvasPlanterList.findIndex(
+      (container) => container.id === id
+    );
+    let newPlanters = [...canvasPlanterList];
+    const [removedPlanter] = newPlanters.splice(activeContainerIndex, 1);
+
+    setCanvasPlanterList(removedPlanter);
   }
 
   // Dnd Context
@@ -395,6 +406,9 @@ export default function PlannerPage() {
                 length={planter.length}
                 radius={planter.radius}
                 round={planter.round}
+                showDeleteModal={showDeleteModal}
+                setShowDeleteModal={setShowDeleteModal}
+                handlePlanterDelete={handlePlanterDelete}
                 onAddItem={() => {
                   setShowAddPlantModal(true);
                   setCurrentPlanterId(planter.id);
