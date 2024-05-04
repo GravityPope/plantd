@@ -4,6 +4,21 @@
 
 A modern garden planning tool that makes implementing organic growing, crop rotation, and companion planting principals a breeze. Plan out any sized garden, from a single pot on a balcony, to an urban farm!
 
+### How to install
+- clone the repository
+#### Server & DB
+- create a new `mySQL` database
+- `cd` to `server` then `npm i` to install packages
+- create a `.env` file using the provided `.env.sample`, include the newly created database name
+- `npx knex migrate:latest' then `npx knex seed:run` to populate the db
+- `node index.js` to start the server, it will print a confirmation of the running port in the terminal
+
+---
+#### Client
+- in a new terminal instance `cd` to `client`
+- `npm i` to install packages
+- `npm start` to start the client
+
 ### Problem
 
 <!-- Why is your app needed? Background information around any pain points or other reasons. -->
