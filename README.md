@@ -10,7 +10,7 @@ A modern garden planning tool that makes implementing organic growing, crop rota
 - create a new `mySQL` database
 - `cd` to `server` then `npm i` to install packages
 - create a `.env` file using the provided `.env.sample`, include the newly created database name
-- `npx knex migrate:latest' then `npx knex seed:run` to populate the db
+- `npx knex migrate:latest` then `npx knex seed:run` to populate the db
 - `node index.js` to start the server, it will print a confirmation of the running port in the terminal
 
 ---
