@@ -1,6 +1,7 @@
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import './ModalPlanter.scss';
+import closeIcon from '../../assets/images/add-square-svgrepo-com.svg'
 
 export default function ModalPlanter(props) {
   const {
@@ -58,22 +59,22 @@ export default function ModalPlanter(props) {
 
   return (
     <div
-      className="planter"
+      className="planter--modal"
       ref={setNodeRef}
       style={style}
       {...attributes}
     >
       <h3 className="planter__name" {...listeners}>{name}</h3>
 
-      <button type="click"
+      <img className="planter__add"
+      src={closeIcon}
         onClick={() => {
           onAddItem(thisPlanter);
           setFilteredList([]);
           setIsChecked([])
         }}
-      >
-        Add To Canvas
-      </button>
+      />
+      
     </div>
   );
 }

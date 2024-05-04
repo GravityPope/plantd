@@ -4,14 +4,14 @@ import PlannerPage from "./pages/PlannerPage/PlannerPage";
 
 function App() {
   return (
-    <>
+    <div className="body">
     <BrowserRouter>
     {/* <Header /> */}
     <Routes>
       <Route path="/" element={<PlannerPage/>} />
     </Routes>
     </BrowserRouter>
-  </>
+  </div>
   );
 }
 

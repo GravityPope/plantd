@@ -3,65 +3,60 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/global" as *;
 
-.drawer{
-    position: fixed;
-    display: flex;
-    // flex-direction: column;
-    flex-wrap: wrap;
-    top: 20vh;
-    left: 10vw;
-    width: 80vw;
-    
-    border-radius: 20px;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    box-shadow: 5px 7px 10px rgba(51, 47, 24, 0.953);
+.drawer {
+  position: fixed;
+  display: flex;
+  // flex-direction: column;
+  flex-wrap: wrap;
+  top: 20vh;
+  left: 10vw;
+  width: 80vw;
 
+  border-radius: 20px;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  box-shadow: 5px 7px 10px rgba(51, 47, 24, 0.953);
 
-    &--plant{
-        @extend .drawer;
-        background-color: rgb(144, 177, 107);
+  &--plant {
+    @extend .drawer;
+    background-color: $olivine;
+  }
 
-    }
-
-    &--planter{
-        @extend .drawer;
-        background-color: rgb(144, 177, 107);
-
-    }
-    &__close{
-        width: 30px;
-        height: 30px;
-        margin-left: auto;
-        margin-right: 0;
-        cursor: pointer;
-    }
+  &--planter {
+    @extend .drawer;
+    background-color: $olivine;
+  }
+  &__close {
+    width: 30px;
+    height: 30px;
+    margin-left: auto;
+    margin-right: 0;
+    cursor: pointer;
+  }
 }
 
-.list{
-    display: flex;
-    flex-wrap: wrap;
-    padding: 0;
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
 
-    &--plant{
-        @extend .list;
+  &--plant {
+    @extend .list;
+  }
 
-    }
-
-    &--planter{
-        @extend .list;
-        
-    }
+  &--planter {
+    @extend .list;
+  }
 }
 
-.overlay{
-    display:initial;
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background-color: #55441bc8;
+.overlay {
+  display: initial;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: $brown-opacity;
 }

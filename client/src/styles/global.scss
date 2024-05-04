@@ -5,6 +5,15 @@
 body {
     font-family: 'Avenir';
     box-sizing: border-box;
+    color: $black;
+}
+.body{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: $straw;
 }
 .emoji {
     font-size: 4rem;

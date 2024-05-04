@@ -1,6 +1,7 @@
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import './Planter.scss';
+import addIcon from '../../assets/images/add-square-svgrepo-com.svg'
 
 export default function Planter(props) {
 
@@ -44,13 +45,16 @@ export default function Planter(props) {
 
   return (
     <div className="planter" ref={setNodeRef} style={style} {...attributes}>
+        {children}
+       
 
       <div className="planter__name-wrapper" {...listeners}>
-        <h3 className="planter__name">{name}</h3>
+      <h3 className="planter__name">{name}</h3>
       </div>
-     {children}
+      <img className="planter__add" src={addIcon} onClick={onAddItem}/>
+     
 
-      <button onClick={onAddItem}>Add Plants</button>
+      
     </div>
   );
 }

@@ -17,8 +17,10 @@
     padding-bottom: 0.5rem;
     padding-left: 1rem;
     padding-right: 1rem;
-    background-color: rgba(0, 225, 255, 0.577);
-    border: 1px solid rgba(0, 100, 0, 0.451);
+    background-color: $straw;
+    color: $brown;
+    font-weight: 600;
+    
     box-shadow: 2px 2px 4px rgba(51, 47, 24, 0.565);
     border-radius: 20px;
     margin-right: 0.5rem;
@@ -31,3 +33,7 @@
   }
   
 }
+// active
+// background-color: $myrtle;
+// color: $maize;
+// border: 1px solid $dark-blue;

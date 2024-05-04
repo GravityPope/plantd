@@ -3,13 +3,19 @@
 @use "../../styles/partials/fonts" as *;
 
 .planter{
-    color: wheat;
+    color: $brown;
+    background-color: $bronze;
     display: flex;
-    flex-direction: column;
-    background-color: rgb(124, 65, 17);
-    border: 2px solid black;
+    flex-wrap: wrap;
+    // flex-direction: column;
+    box-shadow: 2px 2px 4px rgba(51, 47, 24, 0.565);
     border-radius: 10px;
     padding: 0.5rem;
+    margin: 1rem;
+
+    &__name-wrapper{
+        width: 95%;
+    }
 
     &__sort{
         display: flex;
@@ -20,6 +26,13 @@
         margin-left: auto;
         margin-right: auto;
         margin-top: 0.5rem;
+    }
+    &__add{
+        width: 40px;
+        height: 40px;
+        margin-left: auto;
+        margin-right: 0;
+        cursor: pointer;
     }
     
 }
