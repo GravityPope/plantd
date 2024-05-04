@@ -1,0 +1,57 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/global" as *;
+
+.canvas {
+  display: flex;
+  flex-direction: column;
+  &__text-wrapper {
+    &--true {
+      &--false {
+        text-align: center;
+        margin-top: 35rem;
+      }
+      &--true{
+        display: none;
+      }
+    }
+    &--false {
+      display: none;
+      &--false{
+        display: none;
+      }
+      &--true{
+        display: none;
+      }
+    }
+  }
+  &__heading {
+    opacity: 80%;
+  }
+  &__add {
+    width: 40px;
+    height: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+    &:hover {
+      scale: 1.1;
+    }
+    &--planter {
+      @extend .canvas__add;
+      &--true {
+        @extend .canvas__add--planter;
+        width: 100px;
+        height: 100px;
+        margin-top: 2rem;
+      }
+      &--false {
+        @extend .canvas__add--planter;
+        width: 70px;
+        height: 70px;
+        margin-right: 1rem;
+      }
+    }
+  }
+}

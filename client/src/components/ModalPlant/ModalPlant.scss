@@ -33,10 +33,16 @@
         margin-left: auto;
         margin-right: auto;
         cursor: pointer;
+
+        &:hover{
+            scale: 1.1;
+
+        }
     }
  
 }
 .centered{
     margin-left: auto;
     margin-right: auto;
+    cursor:default;
 }

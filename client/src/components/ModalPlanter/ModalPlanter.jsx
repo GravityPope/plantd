@@ -66,7 +66,7 @@ export default function ModalPlanter(props) {
     >
       <h3 className="planter__name" {...listeners}>{name}</h3>
 
-      <img className="planter__add"
+      <img className="planter__add--modal"
       src={closeIcon}
         onClick={() => {
           onAddItem(thisPlanter);

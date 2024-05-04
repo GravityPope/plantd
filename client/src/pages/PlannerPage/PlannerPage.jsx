@@ -20,6 +20,7 @@ import {
 } from "@dnd-kit/sortable";
 import Planter from "../../components/Planter/Planter";
 import Plant from "../../components/Plant/Plant";
+import addIcon from "../../assets/images/add-square-svgrepo-com.svg";
 
 export default function PlannerPage() {
   // States
@@ -73,13 +74,11 @@ export default function PlannerPage() {
     }
   }
 
-  //   function findItemTitle(id) {
-  //     const container = containers.find((item) => item.id === currentContainerId);
-  //     if (!container) return "";
-  //     const item = container.items.find((item) => item.id === id);
-  //     if (!item) return "";
-  //     return item.title;
-  //   }
+  const isCanvasEmpty = () => {
+    if (canvasPlanterList.length === 0) {
+      return true;
+    } else return false;
+  };
 
   //Adding Plants to Planters
   function onAddPlant(newPlant) {
@@ -347,88 +346,87 @@ export default function PlannerPage() {
   }
 
   return (
-    <DndContext
-      sensors={sensors}
-      collisionDetection={closestCorners}
-      onDragStart={handleDragStart}
-      onDragMove={handleDragMove}
-      onDragEnd={handleDragEnd}
-    >
-      <Drawer
-        id="plants"
-        key="plants"
-        list={plantList}
-        filteredList={plantFilteredList}
-        setFilteredList={setPlantFilteredList}
-        isChecked={isChecked}
-        setIsChecked={setIsChecked}
-        showModal={showAddPlantModal}
-        setShowModal={setShowAddPlantModal}
-        onAddItem={onAddPlant}
-      />
-
-      <Drawer
-        id="planters"
-        key="planters"
-        list={planterList}
-        filteredList={planterFilteredList}
-        setFilteredList={setPlanterFilteredList}
-        isChecked={isChecked}
-        setIsChecked={setIsChecked}
-        showModal={showAddPlanterModal}
-        setShowModal={setShowAddPlanterModal}
-        onAddItem={onAddPlanter}
-      />
-      <button
-        onClick={() => {
-          setShowAddPlanterModal(true);
-        }}
+    <section className="canvas">
+      <DndContext
+        sensors={sensors}
+        collisionDetection={closestCorners}
+        onDragStart={handleDragStart}
+        onDragMove={handleDragMove}
+        onDragEnd={handleDragEnd}
       >
-        Add Planter
-      </button>
-      {/* <button onClick={() => {
-          setShowAddPlantModal(true);
-        }}
-      >
-        Add Plant
-      </button> */}
+        <Drawer
+          id="plants"
+          key="plants"
+          list={plantList}
+          filteredList={plantFilteredList}
+          setFilteredList={setPlantFilteredList}
+          isChecked={isChecked}
+          setIsChecked={setIsChecked}
+          showModal={showAddPlantModal}
+          setShowModal={setShowAddPlantModal}
+          onAddItem={onAddPlant}
+        />
 
-      <SortableContext items={canvasPlanterList.map((planter) => planter.id)}>
-        {canvasPlanterList.map((planter) => (
-          <Planter
-            key={planter.id}
-            id={planter.id}
-            planter_id={planter.planter_id}
-            name={planter.name}
-            type={planter.type}
-            height={planter.height}
-            width={planter.width}
-            length={planter.length}
-            radius={planter.radius}
-            round={planter.round}
-            onAddItem={() => {
-              setShowAddPlantModal(true);
-              setCurrentPlanterId(planter.id);
-            }}
-          >
-            <div className="planter__sort">
-              <SortableContext items={planter.plants.map((i) => i.id)}>
-                {planter.plants.map((plant) => (
-                  <Plant
-                    key={plant.id}
-                    id={plant.id}
-                    type_id={plant.type_id}
-                    plant_id={plant.plant_id}
-                    type={plant.type}
-                    plant_name={plant.plant_name}
-                    plant_description={plant.plant_description}
-                  />
-                ))}
-              </SortableContext>
-            </div>
-          </Planter>
-        ))}
-      </SortableContext>
-    </DndContext>
+        <Drawer
+          id="planters"
+          key="planters"
+          list={planterList}
+          filteredList={planterFilteredList}
+          setFilteredList={setPlanterFilteredList}
+          isChecked={isChecked}
+          setIsChecked={setIsChecked}
+          showModal={showAddPlanterModal}
+          setShowModal={setShowAddPlanterModal}
+          onAddItem={onAddPlanter}
+        />
+
+        <SortableContext items={canvasPlanterList.map((planter) => planter.id)}>
+          {canvasPlanterList.map((planter) => (
+            <Planter
+              key={planter.id}
+              id={planter.id}
+              planter_id={planter.planter_id}
+              name={planter.name}
+              type={planter.type}
+              height={planter.height}
+              width={planter.width}
+              length={planter.length}
+              radius={planter.radius}
+              round={planter.round}
+              onAddItem={() => {
+                setShowAddPlantModal(true);
+                setCurrentPlanterId(planter.id);
+              }}
+            >
+              <div className="planter__sort">
+                <SortableContext items={planter.plants.map((i) => i.id)}>
+                  {planter.plants.map((plant) => (
+                    <Plant
+                      key={plant.id}
+                      id={plant.id}
+                      type_id={plant.type_id}
+                      plant_id={plant.plant_id}
+                      type={plant.type}
+                      plant_name={plant.plant_name}
+                      plant_description={plant.plant_description}
+                    />
+                  ))}
+                </SortableContext>
+              </div>
+            </Planter>
+          ))}
+        </SortableContext>
+        <div className={`canvas__text-wrapper--${isCanvasEmpty()}--${showAddPlanterModal}`}>
+            <h1 className="canvas__heading">Looks like there is nothing here, add some Planters!</h1>
+        </div>
+        <img
+          src={addIcon}
+          className={`canvas__add--planter--${isCanvasEmpty()}`}
+          onClick={() => {
+            setShowAddPlanterModal(true);
+          }}
+        />
+      </DndContext>
+    </section>
   );
 }
