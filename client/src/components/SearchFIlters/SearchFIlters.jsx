@@ -53,7 +53,7 @@ export default function SearchFilters(props) {
       <h2 className="search-filter__heading">Filter By:</h2>
       {isChecked.map((checkbox) => {
         return (
-          <label className="search-filter__label">
+          <label className={`search-filter__label ${checkbox.isTrue}`}>
             <input
               key={crypto.randomUUID()}
               className="search-filter__checkbox"
