@@ -379,48 +379,56 @@ export default function PlannerPage() {
           setShowModal={setShowAddPlanterModal}
           onAddItem={onAddPlanter}
         />
-
-        <SortableContext items={canvasPlanterList.map((planter) => planter.id)}>
-          {canvasPlanterList.map((planter) => (
-            <Planter
-              key={planter.id}
-              id={planter.id}
-              planter_id={planter.planter_id}
-              name={planter.name}
-              type={planter.type}
-              height={planter.height}
-              width={planter.width}
-              length={planter.length}
-              radius={planter.radius}
-              round={planter.round}
-              onAddItem={() => {
-                setShowAddPlantModal(true);
-                setCurrentPlanterId(planter.id);
-              }}
-            >
-              <div className="planter__sort">
-                <SortableContext items={planter.plants.map((i) => i.id)}>
-                  {planter.plants.map((plant) => (
-                    <Plant
-                      key={plant.id}
-                      id={plant.id}
-                      type_id={plant.type_id}
-                      plant_id={plant.plant_id}
-                      type={plant.type}
-                      plant_name={plant.plant_name}
-                      plant_description={plant.plant_description}
-                    />
-                  ))}
-                </SortableContext>
-              </div>
-            </Planter>
-          ))}
-        </SortableContext>
-        <div className={`canvas__text-wrapper--${isCanvasEmpty()}--${showAddPlanterModal}`}>
-            <h1 className="canvas__heading">Looks like there is nothing here, add some Planters!</h1>
+        <section className="canvas__planters">
+          <SortableContext
+            items={canvasPlanterList.map((planter) => planter.id)}
+          >
+            {canvasPlanterList.map((planter) => (
+              <Planter
+                key={planter.id}
+                id={planter.id}
+                planter_id={planter.planter_id}
+                name={planter.name}
+                type={planter.type}
+                height={planter.height}
+                width={planter.width}
+                length={planter.length}
+                radius={planter.radius}
+                round={planter.round}
+                onAddItem={() => {
+                  setShowAddPlantModal(true);
+                  setCurrentPlanterId(planter.id);
+                }}
+              >
+                <div className="planter__sort">
+                  <SortableContext items={planter.plants.map((i) => i.id)}>
+                    {planter.plants.map((plant) => (
+                      <Plant
+                        key={plant.id}
+                        id={plant.id}
+                        type_id={plant.type_id}
+                        plant_id={plant.plant_id}
+                        type={plant.type}
+                        plant_name={plant.plant_name}
+                        plant_description={plant.plant_description}
+                      />
+                    ))}
+                  </SortableContext>
+                </div>
+              </Planter>
+            ))}
+          </SortableContext>
+        </section>
+        <div
+          className={`canvas__text-wrapper--${isCanvasEmpty()}--${showAddPlanterModal}`}
+        >
+          <h1 className="canvas__heading">
+            Looks like there is nothing here, add some Planters!
+          </h1>
         </div>
         <img
           src={addIcon}
+          title="Add Planters"
           className={`canvas__add--planter--${isCanvasEmpty()}`}
           onClick={() => {
             setShowAddPlanterModal(true);

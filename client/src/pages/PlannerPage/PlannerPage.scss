@@ -6,6 +6,11 @@
 .canvas {
   display: flex;
   flex-direction: column;
+
+  &__planters{
+    display: flex;
+    flex-wrap: wrap;
+  }
   &__text-wrapper {
     &--true {
       &--false {

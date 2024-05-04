@@ -12,6 +12,12 @@
     border-radius: 10px;
     padding: 0.5rem;
     margin: 1rem;
+    width: fit-content;
+
+    &__wrapper{
+        display: flex;
+        width: 100%;
+    }
 
     &__name-wrapper{
         margin-left: auto;
@@ -26,6 +32,9 @@
     &__sort{
         display: flex;
         flex-wrap: wrap;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
     }
     &__name{
         width: fit-content;

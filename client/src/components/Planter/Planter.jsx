@@ -1,24 +1,23 @@
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
-import './Planter.scss';
-import addIcon from '../../assets/images/add-square-svgrepo-com.svg'
+import "./Planter.scss";
+import addIcon from "../../assets/images/add-square-svgrepo-com.svg";
 
 export default function Planter(props) {
+  const {
+    id,
+    planter_id,
+    name,
+    type,
+    height,
+    width,
+    length,
+    radius,
+    round,
+    children,
+    onAddItem,
+  } = props;
 
-    const {
-        id,
-        planter_id,
-        name,
-        type,
-        height,
-        width,
-        length,
-        radius,
-        round,
-        children,
-        onAddItem,
-      } = props;
-    
   const {
     attributes,
     listeners,
@@ -33,7 +32,6 @@ export default function Planter(props) {
     },
   });
 
- 
   const style = {
     transform: CSS.Transform.toString(transform),
     transition,
@@ -45,16 +43,14 @@ export default function Planter(props) {
 
   return (
     <div className="planter" ref={setNodeRef} style={style} {...attributes}>
-        {children}
-       
+      {children}
 
-      <div className="planter__name-wrapper" {...listeners}>
-      <h3 className="planter__name">{name}</h3>
+      <div className="planter__wrapper">
+        <div className="planter__name-wrapper" {...listeners}>
+          <h3 className="planter__name">{name}</h3>
+        </div>
+        <img className="planter__add" src={addIcon} onClick={onAddItem} />
       </div>
-      <img className="planter__add" src={addIcon} onClick={onAddItem}/>
-     
-
-      
     </div>
   );
 }
