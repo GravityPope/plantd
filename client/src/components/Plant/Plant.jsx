@@ -26,6 +26,10 @@ export default function Plant(props) {
       opacity: isDragging ? 0.3 : 1,
     };
 
+    const emojiSize = {
+
+    }
+
 
     //TODO: add delete/edit options for plants
     return (
