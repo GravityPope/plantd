@@ -2,6 +2,8 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/fonts" as *;
 
+
+
 .plant {
   
 
@@ -41,8 +43,4 @@
     }
  
 }
-.centered{
-    margin-left: auto;
-    margin-right: auto;
-    cursor:default;
-}
+

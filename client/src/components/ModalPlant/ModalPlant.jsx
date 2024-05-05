@@ -52,7 +52,7 @@ export default function ModalPlant(props) {
   return (
     <div className="plant--modal" ref={setNodeRef} style={style} {...attributes}>
       <h3 className="plant__name" {...listeners}>{`${plant_name}`}</h3>
-      <p className="emoji centered">{getEmoji(plant_name)}</p>
+      <p className="emoji">{getEmoji(plant_name)}</p>
       <img
       src={addIcon}
         className="plant__add"
