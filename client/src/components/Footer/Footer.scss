@@ -1,0 +1,10 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/fonts" as *;
+
+.footer{
+    text-align: center;
+    width: 100vw;
+    position: absolute;
+    bottom: 2rem;
+}
