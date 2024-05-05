@@ -1,0 +1,66 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/fonts" as *;
+
+.delete {
+  position: fixed;
+  display: flex;
+  flex-wrap: wrap;
+  top: 20vh;
+  left: 10vw;
+  width: 80vw;
+  background-color: $saffron;
+  border-radius: 20px;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  box-shadow: 5px 7px 10px rgba(51, 47, 24, 0.953);
+
+  &__copy-wrapper{
+    width: 100%;
+   
+  }
+
+  &__heading {
+    font-size: 2rem;
+    
+  }
+  &__copy{
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: $red;
+
+  }
+
+  &__cancel {
+    width: 45px;
+    height: 45px;
+    margin-left: 0;
+    margin-right: 0;
+    cursor: pointer;
+    &:hover {
+      scale: 1.1;
+    }
+  }
+
+  &__confirm {
+    width: 45px;
+    height: 45px;
+    margin-left: auto;
+    margin-right: 15rem;
+    cursor: pointer;
+    &:hover {
+      scale: 1.1;
+    }
+  }
+}
+.overlay {
+  display: initial;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: $brown-opacity;
+}

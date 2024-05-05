@@ -21,6 +21,7 @@ import {
 import Planter from "../../components/Planter/Planter";
 import Plant from "../../components/Plant/Plant";
 import addIcon from "../../assets/images/add-square-svgrepo-com.svg";
+import DeleteModal from "../../components/DeleteModal/DeleteModal";
 
 export default function PlannerPage() {
   // States
@@ -99,14 +100,15 @@ export default function PlannerPage() {
     setShowAddPlanterModal(false);
   }
   // Delete Planters from Canvas
-  function handlePlanterDelete(id) {
-    const activeContainerIndex = canvasPlanterList.findIndex(
-      (container) => container.id === id
-    );
+ 
+  function handlePlanterDelete() {
     let newPlanters = [...canvasPlanterList];
-    const [removedPlanter] = newPlanters.splice(activeContainerIndex, 1);
+    const updatedPlanters = newPlanters.filter((container) => container.id !== currentPlanterId);
 
-    setCanvasPlanterList(removedPlanter);
+     setCanvasPlanterList([...updatedPlanters]);
+     setShowDeleteModal(false);
+     setCurrentPlanterId();
+    
   }
 
   // Dnd Context
@@ -390,6 +392,12 @@ export default function PlannerPage() {
           setShowModal={setShowAddPlanterModal}
           onAddItem={onAddPlanter}
         />
+         <DeleteModal
+        showModal={showDeleteModal}
+        setShowModal={setShowDeleteModal}
+        handleDelete={handlePlanterDelete}
+        setCurrentPlanterId={setCurrentPlanterId}
+      />
         <section className="canvas__planters">
           <SortableContext
             items={canvasPlanterList.map((planter) => planter.id)}
@@ -406,9 +414,10 @@ export default function PlannerPage() {
                 length={planter.length}
                 radius={planter.radius}
                 round={planter.round}
-                showDeleteModal={showDeleteModal}
-                setShowDeleteModal={setShowDeleteModal}
-                handlePlanterDelete={handlePlanterDelete}
+                onDeletePlanter={()=>{
+                    setShowDeleteModal(true);
+                    setCurrentPlanterId(planter.id)
+                }}
                 onAddItem={() => {
                   setShowAddPlantModal(true);
                   setCurrentPlanterId(planter.id);

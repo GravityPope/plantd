@@ -55,7 +55,7 @@ export default function SearchFilters(props) {
         return (
           <label className={`search-filter__label ${checkbox.isTrue}`}>
             <input
-              key={crypto.randomUUID()}
+              key={checkbox.name}
               className="search-filter__checkbox"
               type="checkbox"
               value={checkbox.name}

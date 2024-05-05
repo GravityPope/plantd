@@ -3,7 +3,6 @@ import { CSS } from "@dnd-kit/utilities";
 import "./Planter.scss";
 import addIcon from "../../assets/images/add-square-svgrepo-com.svg";
 import deleteIcon from "../../assets/images/trash-bin-minimalistic-svgrepo-com.svg";
-import DeleteModal from "../../components/DeleteModal/DeleteModal";
 
 export default function Planter(props) {
   const {
@@ -18,9 +17,7 @@ export default function Planter(props) {
     round,
     children,
     onAddItem,
-    setShowDeleteModal,
-    showDeleteModal,
-    handlePlanterDelete
+    onDeletePlanter
   } = props;
 
   const {
@@ -48,17 +45,13 @@ export default function Planter(props) {
 
   return (
     <>
-      <DeleteModal
-        showModal={showDeleteModal}
-        setShowModal={setShowDeleteModal}
-        handleDelete={handlePlanterDelete}
-        id={id}
-      />
+     
       <div className="planter" ref={setNodeRef} style={style} {...attributes}>
         {children}
 
         <div className="planter__wrapper">
-          <img className="planter__add" src={deleteIcon} onClick={()=>{setShowDeleteModal(true)}} />
+          <img className="planter__add" src={deleteIcon} onClick={onDeletePlanter} />
+         
 
           <div className="planter__name-wrapper" {...listeners}>
             <h3 className="planter__name">{name}</h3>
