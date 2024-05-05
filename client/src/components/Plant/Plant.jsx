@@ -27,7 +27,7 @@ export default function Plant(props) {
     };
 
 
-
+    //TODO: add delete/edit options for plants
     return (
       <div
         className="plant"

@@ -47,6 +47,8 @@ export default function ModalPlant(props) {
     plant_description,
   };
 
+  //TODO: add cultivar options, description modals
+
   return (
     <div className="plant--modal" ref={setNodeRef} style={style} {...attributes}>
       <h3 className="plant__name" {...listeners}>{`${plant_name}`}</h3>

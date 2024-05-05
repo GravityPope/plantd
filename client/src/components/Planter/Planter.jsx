@@ -37,6 +37,7 @@ export default function Planter(props) {
   const style = {
     transform: CSS.Transform.toString(transform),
     transition,
+    // TODO: control planter size/shape with API
     // width: { length },
     // height: { width },
     zIndex: isDragging ? "100" : "auto",
