@@ -51,6 +51,8 @@ Planning what to grow in your garden every year is a time consuming process when
 <!-- List technologies that will be used in your app, including any libraries to save time or provide more functionality. Be sure to research any potential limitations. -->
 
 - React
+- JSX
+- Sass
 - React Router
 - Node.js
 - Express
