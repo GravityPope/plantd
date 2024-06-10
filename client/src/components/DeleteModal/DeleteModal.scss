@@ -9,6 +9,7 @@
   top: 20vh;
   left: 10vw;
   width: 80vw;
+  max-width: 90rem;
   background-color: $saffron;
   border-radius: 20px;
   padding-top: 0.5rem;
@@ -16,6 +17,10 @@
   padding-left: 2rem;
   padding-right: 2rem;
   box-shadow: 5px 7px 10px rgba(51, 47, 24, 0.953);
+
+  @include desktop {
+    left: 20vw;
+  }
 
   &__copy-wrapper{
     width: 100%;
