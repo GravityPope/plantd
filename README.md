@@ -80,10 +80,16 @@ Index ___ Home page that prompts existing users to log-in. Also provides an opti
 
 ```
 
-### Mockups
+### Screenshots
 
-![a pencil mockup of the mobile UI](./readme%20assets/mobile-mockup.jpg)
-![a pencil mockup of the tablet and desktop UI](./readme%20assets/tablet-mockup.jpg)
+<!-- ![a pencil mockup of the mobile UI](./readme%20assets/mobile-mockup.jpg)
+![a pencil mockup of the tablet and desktop UI](./readme%20assets/tablet-mockup.jpg) -->
+Desktop:
+[A sceenshot of the desktop interface](./readme&20assets/Desktop.png)
+Desktop Modals:
+[A sceenshot of the desktop Modal interface](./readme&20assets/Desktop-Modal.png)
+Mobile:
+[A sceenshot of the Mobile interface](./readme&20assets/Mobile.png)
 
 ### Data
 
@@ -418,7 +424,7 @@ response:
     ]
 }
 ```
-
+<!-- 
 ### Auth
 
 <!--
@@ -451,4 +457,4 @@ General functionality goals for this sprint:
 - saving functionality
 - implement auth
 - implement string search
-- `/friends` and `/foes` endpoints
+- `/friends` and `/foes` endpoints -->
