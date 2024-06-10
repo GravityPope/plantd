@@ -430,13 +430,13 @@ response:
 <!--
 Does your project include any login or user profile functionality? If so, describe how authentication/authorization will be implemented. -->
 
-User accounts are optional to use the planner, but are required to save plans. Authentication/authorization will be implemented via JWTs.
+<!-- User accounts are optional to use the planner, but are required to save plans. Authentication/authorization will be implemented via JWTs. -->
 
-## Roadmap
+<!-- ## Roadmap -->
 
 <!-- Scope your project as a sprint. Break down the tasks that will need to be completed and map out timeframes for implementation. Think about what you can reasonably complete before the due date. The more detail you provide, the easier it will be to build. -->
 
-General functionality goals for this sprint:
+<!-- General functionality goals for this sprint:
 
 - planning phase, plan components and backend structure - 2 days
 - all `plants` endpoints functional, except `/friends` and `/foes` -2 days
@@ -446,15 +446,15 @@ General functionality goals for this sprint:
   - able to search for plants using filters only (front end implementation, no cultivar name search)
   - drag planters and plants out of their drawers
   - drop planters on the planning canvas
-  - drop plants in planters
+  - drop plants in planters -->
 
-## Nice-to-haves
+<!-- ## Nice-to-haves -->
 
 <!-- Your project will be marked based on what you committed to in the above document. Under nice-to-haves, you can list any additional features you may complete if you have extra time, or after finishing. -->
 
-- `users and login` endpoints
+<!-- - `users and login` endpoints
 - fully responsive
 - saving functionality
 - implement auth
 - implement string search
-- `/friends` and `/foes` endpoints -->
+- `/friends` and `/foes` endpoints --> 
